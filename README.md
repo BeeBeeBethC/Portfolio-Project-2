@@ -15,7 +15,7 @@ TODO add in amiresponsive screenshot of finished webpage.
 
 - Cinzel Decorative, serif font.
 
-![font-family](documentation-screenshots/Font-Family-Cinzel-Decorative.png)
+![font-family](assets/documentation-screenshots/Font-Family-Cinzel-Decorative.png)
 
 ## Features and Wireframes
 - Music plays automatically. The user has an option of pausing the music on the playback buttons located above the game area. 
@@ -25,6 +25,6 @@ TODO add in amiresponsive screenshot of finished webpage.
 - Layout remains fairly similar across all devices.
 - Unsure whether or not the game will have a timer option that counts how long it takes for players to match all the cards.
 
-![Desktop-wireframe](documentation-screenshots/Desktop-Game-Wireframe.png)
-![tablet-wireframe](documentation-screenshots/tablet-game-wireframe.png)
-![mobile-wireframe](documentation-screenshots/mobile-game-wireframe.png)
+![Desktop-wireframe](assets/documentation-screenshots/Desktop-Game-Wireframe.png)
+![tablet-wireframe](assets/documentation-screenshots/tablet-game-wireframe.png)
+![mobile-wireframe](assets/documentation-screenshots/mobile-game-wireframe.png)
