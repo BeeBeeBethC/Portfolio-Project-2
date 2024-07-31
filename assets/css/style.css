@@ -5,3 +5,6 @@ body {
     min-height: 100vh;
     background-color: rgb(255, 212, 127);
 }
+.card, .back-view, img {
+    max-width: 45px;
+}
