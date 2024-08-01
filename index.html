@@ -1,143 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mystic Match</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-    <div class="game-container">
-        <ul class="cards">
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/1.png" alt="fantasy-card-unicorn">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/2.png" alt="fantasy-card-fairy">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/3.png" alt="fantasy-card-alchemist">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/4.png" alt="fantasy-card-wizard">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/5.png" alt="fantasy-card-pirate">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/6.png" alt="fantasy-card-elvish-female">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/7.png" alt="fantasy-card-witch">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/8.png" alt="fantasy-card-dragon">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/1.png" alt="fantasy-card-unicorn">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/2.png" alt="fantasy-card-fairy">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/3.png" alt="fantasy-card-alchemist">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/4.png" alt="fantasy-card-wizard">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/5.png" alt="fantasy-card-pirate">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/6.png" alt="fantasy-card-elvish-female">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/7.png" alt="fantasy-card-witch">
-                </div>
-            </li>
-            <li class="card">
-                <div class="view front-view">
-                    <img src="assets/images/default.png" alt="fantasy-card-face">
-                </div>
-                <div class="view back-view">
-                    <img src="assets/images/8.png" alt="fantasy-card-dragon">
-                </div>
-            </li>
-        </ul>
+    <h1>Mystic Match</h1>
+    <div class="game-container"></div>
+    <p>score: <span class="score"></span></p>
+    <div class="actions">
+        <button onclick="restart()">Restart</button>
     </div>
     <script src="./assets/js/script.js"></script>
 </body>
