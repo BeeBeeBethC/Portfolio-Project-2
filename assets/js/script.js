@@ -1,18 +1,13 @@
-console.log("I am connected.");
+const gridContainer = document.querySelector(".grid-container");
+let cards = [];
+let firstCard, secondCard;
+let lockboard = false;
+let score = 0;
 
-/*const sourceImages = [
-    "1.png",
-    "2.png",
-    "3.png",
-    "4.png",
-    "5.png",
-    "6.png",
-    "7.png",
-    "8.png",
-]
-const defaultImage = "default.png";
+document.querySelector(".score").textContent = score;
 
-const randomImages = [...sourceImages, ...sourceImages].sort((a, b) => Math.random() > 0.5 ? 1 : -1);
-
-console.log(randomImages);
-*/
+fetch("./assets/data/tile.json")
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    });
