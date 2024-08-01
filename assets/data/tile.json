@@ -1,5 +1,9 @@
 [
     {
+        "image": "../assets/images/default.png",
+        "name": "world"
+    },
+    {
         "image": "../assets/images/1.png",
         "name": "unicorn"
     },
