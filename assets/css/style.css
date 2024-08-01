@@ -5,6 +5,11 @@ body {
     min-height: 100vh;
     background-color: rgb(255, 212, 127);
 }
+.game-container {
+    display: grid;
+    grid-template-columns: 4, auto;
+    grid-template-rows: 4, auto;
+}
 .card, .back-view, img {
-    max-width: 45px;
+    max-width: 100px;
 }

@@ -1,0 +1,34 @@
+[
+    {
+        "image": "../assets/1.png",
+        "name": "unicorn"
+    },
+    {
+        "image": "../assets/2.png",
+        "name": "fae-folk"
+    },
+    {
+        "image": "../assets/3.png",
+        "name": "alchemist"
+    },
+    {
+        "image": "../assets/4.png",
+        "name": "wizard"
+    },
+    {
+        "image": "../assets/5.png",
+        "name": "pirate"
+    },
+    {
+        "image": "../assets/6.png",
+        "name": "elven-folk"
+    },
+    {
+        "image": "../assets/7.png",
+        "name": "witch"
+    },
+    {
+        "image": "../assets/8.png",
+        "name": "dragon"
+    }
+]
