@@ -30,11 +30,11 @@ p {
     color: rgb(218, 163, 255);
 }
 .game-container {
-    height: 75%;
-    width: 75%;
     display: grid;
-    justify-content: center;
-    grid-gap: 16px;
+    justify-content: space-around;
+    max-height: 75%;
+    max-width: 75%;
+    grid-gap: 5px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
 }
@@ -64,12 +64,10 @@ p {
     width: 100%;
 }
 .card .front {
-    background-image: url('.assets/data/tile.json');
     background-position: center center;
     background-size: cover;
 }
 .card .back {
-    background-image: url('.assets/data/tile.json/default.png');
     background-position: center center;
     background-size: cover;
     backface-visibility: hidden;
