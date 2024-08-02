@@ -1,22 +1,27 @@
 const gridContainer = document.querySelector(".grid-container");
 //global variables
 let cards = [];
-let firstCard, secondCard;
-// used to compare variables of two cards
+let firstCard, secondCard; // used to compare variables of two cards
 let lockBoard = false;
 let score = 0;
-let imagePath = ".assets/data/tile.json"
 
 document.querySelector(".score").textContent = score;
-// collects data from linked json file and produces an array.
-fetch("./assets/data/tile.json")
+
+// collects data from linked json file and produces an array in console on dev tools.
+/* async function fetchData() {
+await fetch("./assets/data/tile.json")
     .then(res => res.json())
     .then(data => {
-        const imagePath = data.backgroundImage;
         cards = [...data, ...data];
         shuffleCards();
         generateCards();
     });
+
+    fetchData();
+}
+
+console.log('data fetched');
+*/
 // fisher-yates shuffle algorithm.
 function shuffleCards() {
     let currentIndex = cards.length,
@@ -45,22 +50,23 @@ function generateCards() {
 
     console.log('Container element found:', container);
 
-}
-// sets up the data from json file to provide a name to compare cards
-    for (let card of cards) {
-        const card = document.createElement("div");
-        card.classList = 'card';
-        card.setAttribute = "data-name", card.name;
-        cardElement.innerHTML = `
-            <div class="front">
-                <img class="front-image" "url(${imagePath})"/>
-            </div>
-            <div class="back"></div>
-        `;
-        
-        gameContainer.appendChild(cardElement);
-        cardElement.addEventListener("click", flipCard);
-    }
+let x = 4;
+totalPairs = (x * x) / 2;
+let gridBox=``;
+
+for (let a = 0; a < totalPairs; a++){
+        for (let b = 0; b < 2; b++){
+            gridContainer = `${gridBox}
+                <div class="card-wrap" data-cardvalue="${a + 1}">
+                    <div class="card card-back">
+                        <img class="back-image" src="assets/images/default.png" alt="back of card"/>
+                    </div>
+                    <div class="card card-front">
+                        <img class="front-image" src"assets/images/${a + 1}.png alt="character picture"/>                
+                    </div>
+                </div>`;
+        }
+}}
 
 function flipCard() {
     if (lockBoard) return;
@@ -88,8 +94,8 @@ function checkForMatch() {
 }
 
 function disableCards() {
-    firstCard.removeEventListener("click", flipcard);
-    secondCard.removeEventListener("click", flipcard);
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
 
     resetBoard();
 }
