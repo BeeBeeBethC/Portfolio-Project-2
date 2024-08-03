@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
 body {
     min-height: 100vh;
     min-width: 100vw;
@@ -6,23 +8,18 @@ body {
 }
 
 h1 {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;      
     text-align: center;
-    font-weight: 600;
-    font-size: 50px;
 }
 
-p {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 400;
-}
-
-.actions {
+.game-information actions {
     display: flex;
     justify-content: center;
 }
 
-.actions button {
+game-information-container:button {
     padding: 8px 16px;
     font-size: 30px;
     border-radius: 15px;

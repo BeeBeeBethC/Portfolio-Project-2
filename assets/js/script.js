@@ -1,4 +1,5 @@
-const gridContainer = document.querySelector(".grid-container");
+
+/*const gridContainer = document.querySelector(".grid-container");
 //global variables
 let cards = [];
 let firstCard, secondCard; // used to compare variables of two cards
@@ -8,7 +9,7 @@ let score = 0;
 document.querySelector(".score").textContent = score;
 
 // collects data from linked json file and produces an array in console on dev tools.
-/* async function fetchData() {
+async function fetchData() {
 await fetch("./assets/data/tile.json")
     .then(res => res.json())
     .then(data => {
@@ -20,8 +21,8 @@ await fetch("./assets/data/tile.json")
     fetchData();
 }
 
-console.log('data fetched');
-*/
+console.log('array');
+
 // fisher-yates shuffle algorithm.
 function shuffleCards() {
     let currentIndex = cards.length,
@@ -42,27 +43,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function generateCards() {
-    const container = document.getElementById('game-container');
+    const container = document.getElementById('grid-container');
     if (!container) {
         console.error('Container element not found');
         return;
     }
 
     console.log('Container element found:', container);
+// need to generate html elements in js here before generating the gridbox.
+
+const ul = document.querySelector('.grid-container');
+    const newUnorderedList = document.createElement("ul");
+
 
 let x = 4;
 totalPairs = (x * x) / 2;
 let gridBox=``;
 
 for (let a = 0; a < totalPairs; a++){
-        for (let b = 0; b < 2; b++){
+        for (let b = 0; b < 2; b++){ //inner for loop which in theory should generate gridbox?
             gridContainer = `${gridBox}
-                <div class="card-wrap" data-cardvalue="${a + 1}">
+                <div class="card-wrap" data-cardvalue="${('a + 1')}">
                     <div class="card card-back">
                         <img class="back-image" src="assets/images/default.png" alt="back of card"/>
                     </div>
                     <div class="card card-front">
-                        <img class="front-image" src"assets/images/${a + 1}.png alt="character picture"/>                
+                        <img class="front-image" src="assets/images/${('a + 1')}.png alt="character picture"/>                
                     </div>
                 </div>`;
         }
@@ -122,3 +128,4 @@ function restart() {
     gridContainer.innerHTML = "";
     generateCards();
 }
+    */

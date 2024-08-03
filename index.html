@@ -6,79 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mystic Match</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+    </style>
 </head>
 
 <body>
-    <h1>Mystic Match</h1>
-    <div id="game-container"></div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/1.png" alt="unicorn">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
+    <h1 class="page-title">Mystic Match</h1>
+    <div class="game-container">
+        <!--dynamically generating grid from js-->
+        <div class="game-information-container">
+            <div class="game-info">
+                Flips <span id="flips">0</span>
+            </div>
+            <div>
+                <input type="button" value="reset" onclick="Reset">
+            </div>
         </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/2.png" alt="fae-folk">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/3.png" alt="alchemist">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/4.png" alt="wizard">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/5.png" alt="pirate">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/6.png" alt="elven-folk">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/7.png" alt="witch">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/8.png" alt="dragon">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/1.png" alt="unicorn">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/2.png" alt="fae-folk">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/3.png" alt="alchemist">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/4.png" alt="wizard">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/5.png" alt="pirate">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/6.png" alt="elven-folk">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/7.png" alt="witch">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-        <div class="card">
-            <img class="front-face" src="./assets/images/8.png" alt="dragon">
-            <img class="back-face" src="./assets/images/default.png" alt="world-logo">
-        </div>
-    </div>
-    <p>score: <span class="score"></span></p>
-    <div class="actions">
-        <button onclick="restart()">Restart</button>
     </div>
     <script src="./assets/js/script.js"></script>
 </body>
