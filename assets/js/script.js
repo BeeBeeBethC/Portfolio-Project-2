@@ -1,131 +1,86 @@
+const cardsList = [
+    { name: 'world', image: './assets/images/default.png' },
+    { name: 'unicorn', image: './assets/images/1.png' },
+    { name: 'unicorn', image: './assets/images/1.png' },
+    { name: 'fae-folk', image: './assets/images/2.png' },
+    { name: 'fae-folk', image: './assets/images/2.png' },
+    { name: 'alchemist', image: './assets/images/3.png' },
+    { name: 'alchemist', image: './assets/images/3.png' },
+    { name: 'wizard', image: './assets/images/4.png' },
+    { name: 'wizard', image: './assets/images/4.png' },
+    { name: 'pirate', image: './assets/images/5.png' },
+    { name: 'pirate', image: './assets/images/5.png' },
+    { name: 'elven-folk', image: './assets/images/6.png' },
+    { name: 'elven-folk', image: './assets/images/6.png' },
+    { name: 'witch', image: './assets/images/7.png' },
+    { name: 'witch', image: './assets/images/7.png' },
+    { name: 'dragon', image: './assets/images/8.png' },
+    { name: 'dragon', image: './assets/images/8.png' }
+];
+cardsList.sort( () => 0.5 - Math.random() );
 
-/*const gridContainer = document.querySelector(".grid-container");
-//global variables
-let cards = [];
-let firstCard, secondCard; // used to compare variables of two cards
-let lockBoard = false;
-let score = 0;
+var gameGrid = document.getElementById('game-container');
 
-document.querySelector(".score").textContent = score;
+const flipsHolder = document.querySelector('.flipsHolder');
+const matchHolder = document.querySelector('.matchHolder');
+const cardsInGame = 16;
 
-// collects data from linked json file and produces an array in console on dev tools.
-async function fetchData() {
-await fetch("./assets/data/tile.json")
-    .then(res => res.json())
-    .then(data => {
-        cards = [...data, ...data];
-        shuffleCards();
-        generateCards();
-    });
+var flips = 0;
+var matches = 0;
+flipsHolder.textContent = Flips;
+matchHolder.textContent = Matches;
 
-    fetchData();
-}
+var chosenCards = [];
+var chosenCardsIds = [];
 
-console.log('array');
-
-// fisher-yates shuffle algorithm.
-function shuffleCards() {
-    let currentIndex = cards.length,
-        randomIndex,
-        temporaryValue;
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = cards[currentIndex];
-        cards[currentIndex] = cards[randomIndex];
-        cards[randomIndex] = temporaryValue;
+function generateBoard(){
+    for (var i = 0; i < cardsList.length; i++){
+        var card = document.createElement('img');
+        card.setAttribute('src', './assets/images/default.png');
+        card.setAttribute('data-id', i);
+        card.addEventListener('click', flipCard);
+        gameGrid.appendChild(card);
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded and parsed');
-    generateCards();
-});
-
-function generateCards() {
-    const container = document.getElementById('grid-container');
-    if (!container) {
-        console.error('Container element not found');
-        return;
-    }
-
-    console.log('Container element found:', container);
-// need to generate html elements in js here before generating the gridbox.
-
-const ul = document.querySelector('.grid-container');
-    const newUnorderedList = document.createElement("ul");
-
-
-let x = 4;
-totalPairs = (x * x) / 2;
-let gridBox=``;
-
-for (let a = 0; a < totalPairs; a++){
-        for (let b = 0; b < 2; b++){ //inner for loop which in theory should generate gridbox?
-            gridContainer = `${gridBox}
-                <div class="card-wrap" data-cardvalue="${('a + 1')}">
-                    <div class="card card-back">
-                        <img class="back-image" src="assets/images/default.png" alt="back of card"/>
-                    </div>
-                    <div class="card card-front">
-                        <img class="front-image" src="assets/images/${('a + 1')}.png alt="character picture"/>                
-                    </div>
-                </div>`;
+function flipCard(){
+    if(chosenCards.length != 2){        
+        var cardId = this.getAttribute('data-id');
+            if(this.classList.contains('matched') || (this.getAttribute('src') == './assets/images/default.png')) {
+                return;
+            }
+                chosenCards.push(cardsList[cardId].name);
+                chosenCardsIds.push(cardId);
+                this.setAttribute('src', cardsList[cardId].image);
+            
+            if(chosenCards.length === 2){
+                setTimeout(checkForMatch, 400);
+            }
         }
-}}
-
-function flipCard() {
-    if (lockBoard) return;
-    if (this === firstCard) return;
-
-    this.classList.add("flipped");
-
-    if (!firstCard) {
-        firstCard = this;
-        return;
     }
-
-    secondCard = this;
-    score++;
-    document.querySelector(".score").textContent = score;
-    lockBoard = true;
-
-    checkForMatch();
-}
 
 function checkForMatch() {
-    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
+    var cards = document.querySelectorAll('img');
+    var firstCard = chosenCardsIds[0];
+    var secondCard = chosenCardsIds[1];
+    if(chosenCards[0] === chosenCards[1]) {
+        cards[firstCard].classList.add('matched');
+        cards[secondCard].classList.add('matched');
+        matchHolder++;
+    } else {
+        cards[firstCard].setAttribute('src', './assets/images/default.png');
+        cards[secondCard].setAttribute('src', './assets/images/default.png');
+    }
 
-    isMatch ? disableCards() : unflipCards();
+    chosenCards = [];
+    chosenCardsIds = [];
+    flipsHolder.textContent = flips;
+    matchHolder.textContent = matches;
+    if(matchHolder == cardsInGame){
+        alert('Well done!')
+    }
 }
 
-function disableCards() {
-    firstCard.removeEventListener("click", flipCard);
-    secondCard.removeEventListener("click", flipCard);
-
-    resetBoard();
-}
-
-function unflipCards() {
-    setTimeout(() => {
-        firstCard.classList.remove("flipped");
-        secondCard.classList.remove("flipped");
-        resetBoard();
-    }, 1000);
-}
-
-function resetBoard() {
-    firstCard = null;
-    secondCard = null;
-    lockBoard = false;
-}
-
-function restart() {
-    resetBoard();
-    shuffleCards();
-    score = 0;
-    document.querySelector(".score").textContent = score;
-    gridContainer.innerHTML = "";
-    generateCards();
-}
-    */
+document.addEventListener('DOMContentLoaded', function() {
+    generateBoard();
+});

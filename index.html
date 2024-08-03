@@ -6,23 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mystic Match</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
-    </style>
 </head>
 
 <body>
     <h1 class="page-title">Mystic Match</h1>
-    <div class="game-container">
-        <!--dynamically generating grid from js-->
-        <div class="game-information-container">
+    <div class="game-information-container">
             <div class="game-info">
-                Flips <span id="flips">0</span>
+                Flips: <span class="flipsHolder"></span> Matches: <span class="matchHolder"></span>
             </div>
             <div>
                 <input type="button" value="reset" onclick="Reset">
             </div>
         </div>
+    <div class="game-container">
+        <!--dynamically generating grid from js-->  
     </div>
     <script src="./assets/js/script.js"></script>
 </body>
