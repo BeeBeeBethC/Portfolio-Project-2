@@ -27,8 +27,8 @@ const cardsInGame = 16;
 
 var flips = 0;
 var matches = 0;
-flipsHolder.textContent = Flips;
-matchHolder.textContent = Matches;
+flipsHolder.textContent = flips;
+matchHolder.textContent = matches;
 
 var chosenCards = [];
 var chosenCardsIds = [];
