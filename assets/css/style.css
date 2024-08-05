@@ -3,7 +3,7 @@
 body {
     min-height: 100vh;
     min-width: 100vw;
-    background-color: rgb(218, 163, 255);
+    background-color: rgb(225, 187, 251);
     color: black;
 }
 h1 {
@@ -12,28 +12,39 @@ h1 {
     font-style: normal;      
     text-align: center;
 }
-.game-container {
+.game-info .actions {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+}
+.actions .button:hover {
+    padding: 4px 8px;
+    font-size: 20px;
+    border-radius: 15px;
+    background-color: rgb(63, 4, 102);
+    color:rgb(225, 187, 251);
+}
+.game-container {
+    display: grid;
+    justify-content: center;
     height: 750px;
     width: 750px;
-    border: 1px solid black;
-}
-.game-container img{
-        width: 100px;
-        height: 100px; 
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+    border: 2px solid black;
 }
 .card {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     border-radius: 15px;
+    background-color: rgb(225, 187, 251);
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out; 
 }
 .front-image {
-    height: 100px;
-    width: 100px;
+    height: 45px;
+    width: 45px;
 }
 .card.flipped{
     transform: rotateY(180deg);
@@ -49,14 +60,14 @@ h1 {
     width: 100%;
 }
 .card .front {
-    background-position: center center;
-    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY('180'deg);
 }
 .card .back {
+    background-image: url("./assets/images/default.png");
     background-position: center center;
     background-size: cover;
     backface-visibility: hidden;
-}
-.card .front {
-    transform:rotateY(180deg);
 }

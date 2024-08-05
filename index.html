@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Mystic Match</title>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
@@ -13,17 +13,15 @@
 
 <body>
     <h1 class="page-title">Mystic Match</h1>
-    <div class="game-information-container">
-            <div class="game-info">
-                flips: <span class="flipsHolder"></span> matches: <span class="matchHolder"></span>
-            </div>
-            <div>
-                <input type="button" value="reset" onclick="Reset">
+    <div class="game-info">
+            <div class="actions">
+                <button onclick="reset()">Reset</button>
+                <p>Flips: <span class="flipsHolder"></span> Matches: <span class="matchHolder"></span></p>
             </div>
         </div>
-    <div class="game-container">
+    <div id="game-container">
         <!--dynamically generating grid from js-->  
     </div>
-    <script src="./assets/js/script.js"></script>
+    <!--<script src="./assets/js/script.js"></script>-->
 </body>
 </html>

@@ -1,68 +1,62 @@
-
-cardsList.sort( () => 0.5 - Math.random() );
-
-let gameGrid = document.getElementById('game-container');
-
-const flipsHolder = document.querySelector('.flipsHolder');
-const matchHolder = document.querySelector('.matchHolder');
-const cardsInGame = 16;
-
-let flips = 0;
-let matches = 0;
-flipsHolder.textContent = flips;
-matchHolder.textContent = matches;
-
+const gameContainer = document.getElementById("game-container");
+const flipsHolder = document.querySelector('.flipsHolder').textContent = flips;
+const matchHolder = document.querySelector('.matchHolder').textContent = matches;
+let card1, card2;
 let chosenCards = [];
 let chosenCardsIds = [];
+let flips = 0;
+let matches = 0;
 
-function generateBoard(){
-    for (var i = 0; i < cardsList.length; i++){
-        var card = document.createElement('img');
-        card.setAttribute('src', './assets/images/default.png');
-        card.setAttribute('data-id', i);
-        card.addEventListener('click', flipCard);
-        gameGrid.appendChild(card);
+fetch("./data/tile.json")
+    .then((res) => res.json())
+    .then((data) => {
+        cards = [...data, ...data];
+        cardShuffle();
+        generateBoard();
+    });
+
+const cards = [...data, ...data];
+document.getElementById("game-container").innerHTML = cards;
+
+function cardShuffle() {
+    for (let i = cards.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let k = cards[i];
+        cards[i] = cards[j];
+        cards[j] = k;
+    }
+    document.getElementById("game-container").innerHTML = cards;
+}
+
+function generateBoard() {
+    for (let card of cards) {
+        const cardsElement = document.createElement("div");
+        cardsElement.classList.add("cards");
+        cardsElement.setAttribute("data-id", cards.name);
+        cardsElement.innerHTML = `
+            <div class="card card-back">
+                <img class="back-image" src="assets/images/default.png" alt="hidden when flipped"/>
+            </div>
+            <div class="card card-front">
+                <img class="front-image" src="assets/images/${i + 1}.png" alt="character picture"/>
+            </div>`;
+
+        cards.addEventListener('click', flipCard);
+        gameContainer.appendChild(cards);
     }
 }
 
-function flipCard(){
-    if(chosenCards.length != 2){        
-        var cardId = this.getAttribute('data-id');
-            if(this.classList.contains('matched') || (this.getAttribute('src') == './assets/images/default.png')) {
-                return;
-            }
-                chosenCards.push(cardsList[cardId].name);
-                chosenCardsIds.push(cardId);
-                this.setAttribute('src', cardsList[cardId].image);
-            
-            if(chosenCards.length === 2){
-                setTimeout(checkForMatch, 400);
-            }
+function checkForMatch() { // checks two cards selected and if both cards are the same the class matched is added
+    card1 = chosenCardsIds[0];
+    card2 = chosenCardsIds[1];
+    if (chosenCards[0] === chosenCards[1]) {
+        (document.querySelectorAll('img'))[card1].classList.add('matched');
+        (document.querySelectorAll('img'))[card2].classList.add('matched');
+    } else {
+        (chosenCards[0] !== chosenCards[1]); {
+            cards[card1].setAttribute('src', './assets/images/default.png');
+            cards[card2].setAttribute('src', './assets/images/default.png');
+            return;
         }
     }
-
-function checkForMatch() {
-    var cards = document.querySelectorAll('img');
-    var firstCard = chosenCardsIds[0];
-    var secondCard = chosenCardsIds[1];
-    if(chosenCards[0] === chosenCards[1]) {
-        cards[firstCard].classList.add('matched');
-        cards[secondCard].classList.add('matched');
-        matchHolder++;
-    } else {
-        cards[firstCard].setAttribute('src', './assets/images/default.png');
-        cards[secondCard].setAttribute('src', './assets/images/default.png');
-    }
-
-    chosenCards = [];
-    chosenCardsIds = [];
-    flipsHolder.textContent = flips;
-    matchHolder.textContent = matches;
-    if(matchHolder == cardsInGame){
-        alert('Well done!')
-    }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    generateBoard();
-});
