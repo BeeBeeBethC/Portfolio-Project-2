@@ -1,37 +1,19 @@
-const cardsList = [
-    { name: 'world', image: './assets/images/default.png' },
-    { name: 'unicorn', image: './assets/images/1.png' },
-    { name: 'unicorn', image: './assets/images/1.png' },
-    { name: 'fae-folk', image: './assets/images/2.png' },
-    { name: 'fae-folk', image: './assets/images/2.png' },
-    { name: 'alchemist', image: './assets/images/3.png' },
-    { name: 'alchemist', image: './assets/images/3.png' },
-    { name: 'wizard', image: './assets/images/4.png' },
-    { name: 'wizard', image: './assets/images/4.png' },
-    { name: 'pirate', image: './assets/images/5.png' },
-    { name: 'pirate', image: './assets/images/5.png' },
-    { name: 'elven-folk', image: './assets/images/6.png' },
-    { name: 'elven-folk', image: './assets/images/6.png' },
-    { name: 'witch', image: './assets/images/7.png' },
-    { name: 'witch', image: './assets/images/7.png' },
-    { name: 'dragon', image: './assets/images/8.png' },
-    { name: 'dragon', image: './assets/images/8.png' }
-];
+
 cardsList.sort( () => 0.5 - Math.random() );
 
-var gameGrid = document.getElementById('game-container');
+let gameGrid = document.getElementById('game-container');
 
 const flipsHolder = document.querySelector('.flipsHolder');
 const matchHolder = document.querySelector('.matchHolder');
 const cardsInGame = 16;
 
-var flips = 0;
-var matches = 0;
+let flips = 0;
+let matches = 0;
 flipsHolder.textContent = flips;
 matchHolder.textContent = matches;
 
-var chosenCards = [];
-var chosenCardsIds = [];
+let chosenCards = [];
+let chosenCardsIds = [];
 
 function generateBoard(){
     for (var i = 0; i < cardsList.length; i++){
