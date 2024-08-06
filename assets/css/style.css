@@ -23,7 +23,7 @@ h1 {
     background-color: rgb(63, 4, 102);
     color:rgb(225, 187, 251);
 }
-.game-container {
+#game-container {
     display: grid;
     justify-content: center;
     height: 750px;

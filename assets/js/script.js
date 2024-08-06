@@ -8,18 +8,21 @@ let chosenCardsIds = [];
 let flips = 0;
 let matches = 0;
 
-console.log('Path:','./assets/data/tile.json');
+console.log('I AM CONNECTED');
 
-function fetch() {
-fetch(resource.json)
+// removing the function ensures the fetch is conducted during the page load, rather than when a function is called
+fetch("assets/data/tile.json")
     .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Unexpected error occurred:' + response.status);
-        }
-    }
-)}; 
+        console.log('IT WORKS!')
+        return response.json();
+    })
+    .then(loadedCards => {
+
+        // load the cards response from the tile.json file to your cards array
+        cards = loadedCards;
+        console.log('CARDS: ', cards)
+    })
+    .catch(error => console.log(error));
 
 generateBoard();
 cardShuffle();
@@ -56,17 +59,21 @@ function generateBoard() {
 }
 
 
-    function checkForMatch() { // checks two cards selected and if both cards are the same the class matched is added
-        card1 = chosenCardsIds[0];
-        card2 = chosenCardsIds[1];
-        if (chosenCards[0] === chosenCards[1]) {
-            (document.querySelectorAll('img'))[card1].classList.add('matched');
-            (document.querySelectorAll('img'))[card2].classList.add('matched');
-        } else {
-            (chosenCards[0] !== chosenCards[1]); {
-                cards[card1].setAttribute('src', './assets/images/default.png');
-                cards[card2].setAttribute('src', './assets/images/default.png');
-                return;
-            }
+function checkForMatch() { // checks two cards selected and if both cards are the same the class matched is added
+    card1 = chosenCardsIds[0];
+    card2 = chosenCardsIds[1];
+    if (chosenCards[0] === chosenCards[1]) {
+        (document.querySelectorAll('img'))[card1].classList.add('matched');
+        (document.querySelectorAll('img'))[card2].classList.add('matched');
+    } else {
+        (chosenCards[0] !== chosenCards[1]); {
+            cards[card1].setAttribute('src', './assets/images/default.png');
+            cards[card2].setAttribute('src', './assets/images/default.png');
+            return;
         }
     }
+}
+
+function reset() {
+
+}
