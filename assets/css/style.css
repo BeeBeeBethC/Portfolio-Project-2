@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
 
 body {
-    min-height: 100vh;
-    min-width: 100vw;
+    display: flex;
+    
+    flex-direction: column;
+    align-content: center;
+    max-height: 100%;
+    max-width: 100%;
     background-color: rgb(225, 187, 251);
     color: black;
 }
@@ -11,33 +15,30 @@ h1 {
     font-weight: 700;
     font-style: normal;      
     text-align: center;
+    font-size: 3em;
 }
 .game-info .actions {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;    
 }
-.actions .button:hover {
-    padding: 4px 8px;
-    font-size: 20px;
-    border-radius: 15px;
-    background-color: rgb(63, 4, 102);
-    color:rgb(225, 187, 251);
-}
-#game-container {
+#gameContainer {
     display: grid;
+    flex-wrap: wrap;
     justify-content: center;
-    height: 750px;
-    width: 750px;
+    height: 500px;
+    min-width: 500px;
+    margin-top: 20px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 8px;
     border: 2px solid black;
 }
 .card {
-    height: 50px;
-    width: 50px;
+    background-image: url("default.png");
+    height: 100px;
+    width: 100px;
     border-radius: 15px;
-    background-color: rgb(225, 187, 251);
+    background-color: rgb(75, 28, 107);
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out; 
@@ -58,16 +59,4 @@ h1 {
     left: 0;
     height: 100%;
     width: 100%;
-}
-.card .front {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: rotateY('180'deg);
-}
-.card .back {
-    background-image: url("./assets/images/default.png");
-    background-position: center center;
-    background-size: cover;
-    backface-visibility: hidden;
 }

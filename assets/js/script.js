@@ -1,6 +1,6 @@
-const gameContainer = document.getElementById("game-container");
-const flipsHolder = document.querySelector('.flipsHolder').textContent = "Flips";
-const matchHolder = document.querySelector('.matchHolder').textContent = "Matches";
+const gameContainer = document.getElementById("gameContainer");
+const flipsHolder = document.querySelector('.flipsHolder').textContent = "0";
+const matchHolder = document.querySelector('.matchHolder').textContent = "0";
 let cards = [];
 let card1, card2;
 let chosenCards = [];
@@ -24,39 +24,37 @@ fetch("assets/data/tile.json")
     })
     .catch(error => console.log(error));
 
-generateBoard();
-cardShuffle();
-
-document.getElementById("game-container").innerHTML = cards;
-
-function cardShuffle() {
-    for (let i = cards.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        let k = cards[i];
-        cards[i] = cards[j];
-        cards[j] = k;
-    }
-
-}
+generateBoard(); 
 
 function generateBoard() {
-    document.getElementById("game-container").innerHTML = cards;
-    for (let card of cards) {
-        const cardsElement = document.createElement("div");
-        cardsElement.classList.add("cards");
-        cardsElement.setAttribute("data-id", cards.name);
-        cardsElement.innerHTML = `
-            <div class="card card-back">
-                <img class="back-image" src="assets/images/default.png" alt="hidden when flipped"/>
-            </div>
-            <div class="card card-front">
-                <img class="front-image" src="assets/images/${i + 1}.png" alt="character picture"/>
-            </div>`;
 
-        cards.addEventListener('click', flipCard);
+const cards = document.createElement("div");
+        cards.imageContent = "cardName" + "dataImgPath";
         gameContainer.appendChild(cards);
+};
+
+cardShuffle();
+/* 
+fisher yates shuffle algorithm this loop loops backwards through the cards array.
+*/
+function cardShuffle() {
+    for (let i = this.cards.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i+1));
+        this.cards[j].style.order = i;
+        this.cards[i].style.order = cards[j];
     }
 }
+
+console.log('CARD SHUFFLE COMPLETE');
+
+document.addEventListener("DOMContentLoaded")
+console.log('DOM CONTENT READY')
+
+function flipCard() {
+    console.log("I HAVE BEEN FLIPPED MWAHAHAHA")
+    this.classList.toggle('flip');
+}
+cards.forEach(cards => cards.addEventListener('click', flipCard));
 
 
 function checkForMatch() { // checks two cards selected and if both cards are the same the class matched is added
