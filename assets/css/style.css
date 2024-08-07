@@ -6,19 +6,18 @@ body{
     justify-content: center;
     flex-wrap: wrap;
 }
+/*main webpage grid layout*/
 .container{
     display: grid;
     justify-content: center;
     height: 100%;
     width: 800px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: .5fr 3fr .3fr .5fr;
-    gap: 0.2rem;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 1rem;
     grid-template-areas:
         "nav nav nav nav"
         "sidepanel main main main"
-        "sidepanel actions actions actions"
-        "footer footer footer footer"
     ;
 }
 nav{
@@ -28,8 +27,13 @@ nav{
     font-weight: 700;
     font-style: normal;      
     text-align: center;
-    font-size: 2em;
+    font-size: 32px;
     grid-area: nav;
+}
+p{
+    letter-spacing: 3px;
+    font-family: sans-serif;
+    font-weight: 600;
 }
 main{
     background: radial-gradient(#8a2be2, #d1b2fc, #ffffff);
@@ -37,30 +41,47 @@ main{
     border: 8px solid black;
     border-radius: 50px;
 }
+#reset-board{
+    height: 60px;
+    width: 150px;
+    background-color: #561990;
+    color:#d1b2fc;
+    border-radius: 15px;
+    border: 2px solid black;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1em;
+    letter-spacing: 2px;
+}
+#reset-board:hover{
+    background-color: #d1b2fc;
+    cursor: pointer;
+    color: #561990;
+}
 /*game grid css starts*/
 .nested{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 5px;
-    padding: 20px 0px 20px 30px;
+    padding: 10px 0px 10px 10px;
 }
 .nested img{
     border: 3px solid black;
     margin: 5px;
-    
 }
 .card .world{
     border-radius: 15px;
     height: 100px;
     width: 100px;
-    
 }
 .world:hover{
-    opacity: 0.8;
+    opacity: 0.6;
     cursor: pointer;
     transition: 0.3s;
 }
+/*sidepanel, actions and footer section styling begins*/
 #sidepanel{
     background-color:#d1b2fc;
     grid-area: sidepanel;
@@ -71,8 +92,4 @@ main{
     padding: 5px;
     display: flex;
     justify-content: space-evenly;
-}
-footer{
-    background-color:#d1b2fc;
-    grid-area: footer;
 }
