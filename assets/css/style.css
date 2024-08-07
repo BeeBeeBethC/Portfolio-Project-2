@@ -10,8 +10,8 @@ body{
     display: grid;
     justify-content: center;
     height: 100%;
-    width: 750px;
-    grid-template-columns: 2fr 3fr 3fr 2fr;
+    width: 800px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: .5fr 3fr .3fr .5fr;
     gap: 0.2rem;
     grid-template-areas:
@@ -21,36 +21,45 @@ body{
         "footer footer footer footer"
     ;
 }
-nav {
+nav{
     background-color: #d1b2fc;
     color: black;
     font-family: "Cinzel Decorative", serif;
     font-weight: 700;
     font-style: normal;      
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     grid-area: nav;
 }
 main{
-    background: radial-gradient(#8a2be2, #d1b2fc);
+    background: radial-gradient(#8a2be2, #d1b2fc, #ffffff);
     grid-area: main;
+    border: 8px solid black;
+    border-radius: 50px;
 }
+/*game grid css starts*/
 .nested{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 15px;
-    padding: 5px
+    gap: 5px;
+    padding: 20px 0px 20px 30px;
 }
 .nested img{
-    border: 1px solid black;
+    border: 3px solid black;
     margin: 5px;
+    
 }
 .card .world{
     border-radius: 15px;
-    box-shadow: 2px;
-    height: 95px;
-    width: 95px;
+    height: 100px;
+    width: 100px;
+    
+}
+.world:hover{
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.3s;
 }
 #sidepanel{
     background-color:#d1b2fc;
@@ -59,6 +68,9 @@ main{
 #actions{
     background-color:#d1b2fc;
     grid-area: actions;
+    padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
 }
 footer{
     background-color:#d1b2fc;
