@@ -29,7 +29,7 @@ generateBoard();
 function generateBoard() {
 
 const cards = document.createElement("div");
-        cards.imageContent = "cardName" + "dataImgPath";
+        cards.textContent = `cardName:dataImgPath`;
         gameContainer.appendChild(cards);
 };
 
@@ -72,6 +72,6 @@ function checkForMatch() { // checks two cards selected and if both cards are th
     }
 }
 
-function reset() {
+function resetBoard() {
 
 }

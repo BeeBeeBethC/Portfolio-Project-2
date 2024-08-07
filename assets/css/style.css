@@ -2,7 +2,6 @@
 
 body {
     display: flex;
-    
     flex-direction: column;
     align-content: center;
     max-height: 100%;
@@ -43,7 +42,7 @@ h1 {
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out; 
 }
-.front-image {
+.front {
     height: 45px;
     width: 45px;
 }
@@ -51,7 +50,7 @@ h1 {
     transform: rotateY(180deg);
 }
 .front,
-.back {
+.face {
     backface-visibility: hidden;
     position: absolute;
     border-radius: 15px;
