@@ -1,4 +1,4 @@
-const gameContainer = document.getElementById("gameContainer");
+const gameContainer = document.getElementById("container");
 const flipsHolder = document.querySelector('.flipsHolder').textContent = "0";
 const matchHolder = document.querySelector('.matchHolder').textContent = "0";
 let cards = [];
@@ -17,38 +17,46 @@ fetch("assets/data/tile.json")
         return response.json();
     })
     .then(loadedCards => {
+        console.log('CARDS: ', loadedCards);
 
         // load the cards response from the tile.json file to your cards array
         cards = loadedCards;
-        console.log('CARDS: ', cards)
+        console.log('CARDS: ', cards);
+
+        const cardDeck = Array.prototype.concat(loadedCards, cards);
+        console.log('CARDDECK', cardDeck);
     })
     .catch(error => console.log(error));
 
-generateBoard(); 
+/* Display the original and cloned arrays
+console.log("CARDS: ", cardsList); // Output: [1, 2, 3, 4]
+console.log("I AM A CLONE OF CARDS ARRAY WHAT IS THIS SORCERY!: ", clonedArray); // Output: [1, 2, 3, 4]
+*/
 
-function generateBoard() {
-
-const cards = document.createElement("div");
-        cards.textContent = `cardName:dataImgPath`;
-        gameContainer.appendChild(cards);
-};
-
-cardShuffle();
 /* 
 fisher yates shuffle algorithm this loop loops backwards through the cards array.
 */
 function cardShuffle() {
-    for (let i = this.cards.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i+1));
+    for (let i = cardDeck.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
         this.cards[j].style.order = i;
         this.cards[i].style.order = cards[j];
     }
 }
-
+cardShuffle();
 console.log('CARD SHUFFLE COMPLETE');
 
-document.addEventListener("DOMContentLoaded")
-console.log('DOM CONTENT READY')
+document.addEventListener("DOMContentLoaded");
+console.log('DOM CONTENT READY');
+
+generateBoard();
+
+function generateBoard() {
+
+    const cards = document.createElement("div");
+    cards.textContent = `${loadedCards}`;
+    gameContainer.appendChild(cards);
+};
 
 function flipCard() {
     console.log("I HAVE BEEN FLIPPED MWAHAHAHA")

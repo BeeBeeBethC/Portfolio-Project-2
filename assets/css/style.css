@@ -7,7 +7,7 @@ body{
     flex-wrap: wrap;
 }
 /*main webpage grid layout*/
-.container{
+.game-container{
     display: grid;
     justify-content: center;
     height: 100%;

@@ -1,5 +1,5 @@
 {
-    "cardslist":[
+    "cardsList":[
         {"cardName":"unicorn", "dataImgPath":"../assets/image/1.png"},
         {"cardName":"fae-folk", "dataImgPath":"../assets/image/2.png"},
         {"cardName":"alchemist", "dataImgPath":"../assets/image/3.png"},

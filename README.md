@@ -9,7 +9,7 @@ TODO add in amiresponsive screenshot of finished webpage.
 
 # Design Choices
 
-
+tested json file using json lint. json has no errors.
 
 ## Typography
 
