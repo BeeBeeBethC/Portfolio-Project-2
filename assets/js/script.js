@@ -3,8 +3,8 @@ const flipsHolder = document.querySelector('.flipsHolder').textContent = "0";
 const matchHolder = document.querySelector('.matchHolder').textContent = "0";
 let cards = [];
 let card1, card2;
-let chosenCards = [];
-let chosenCardsIds = [];
+let chosenCards = [0, 1];
+let chosenCardsIds = [0, 1];
 let flips = 0;
 let matches = 0;
 
