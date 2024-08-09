@@ -6,31 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Mystic Match</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 </head>
 
 <body>
-    <div class="game-container" id="container">
-        <nav>
-            <h1>Mystic Match</h1>
-            <div id="actions">
-                <p><span class="flipsHolder">Flips: </span></p>
-                    <button id="reset-board" onclick="resetBoard()">Reset</button>
-                <p><span class="matchHolder">Matches: </span></p>
-            </div>
-        </nav>
-        <main class="gameArea" id="area"><!-- generated card output via JavaScript will be here --></main>
-        <footer>
-                <ul>
-                    <li><a href="https://facebook.com/BardcoreOfficial" target="_blank" rel="noopener"
-                        aria-label="bardcore-official-facebook-page(opens in new tab)"><i class="fa-brands fa-square-facebook" style="color: #db3939;"></i></a>
-                    </li>
-<!--input remaining bardocore official links spotify artist, youtube, tik tok in here-->
-                </ul>
-            </footer>
-        <script src="https://kit.fontawesome.com/7a4e6351e1.js" crossorigin="anonymous"></script>
-        <script src="./assets/js/script.js"></script>
+    <div class="container">
+        <div class="info-container">
+            Mystic Match
+            <div class="flip-count"></div>
+            <div class="match-count"></div>
+            <div class="game-area">
+<!-- generated card output via JavaScript in console will be here -->
+            <button id="stop" class="hide">End</button>
+            </div> 
+        </div>       
+        <div class="control-panel">
+            <p id="outcome"></p>
+            <button id="start">Play</button>
+        </div>
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
