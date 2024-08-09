@@ -1,15 +1,16 @@
-const flips = document.querySelector('.flip-count').textContent = 0;
-const matches = document.querySelector('.match-count').textContent = 0;
-const gameContainer = document.getElementById(".game-area");
+const flips = document.querySelector(".flip-count").textContent = 0;
+const matches = document.querySelector(".match-count").textContent = 0;
+const gameArea = document.querySelector(".game-area");
 const controls = document.querySelector(".control-panel");
 const outcome = document.querySelector(".outcome");
 const playButton = document.getElementById("start");
 const endButton = document.getElementById("stop");
+const defaultImage = ("../assets/images/default.png");
 let cards;
 let firstCard = false;
 let secondCard = false;
 
-const items = [{
+cards = [{
         name: "unicorn",
         image: "1.png"
     },
@@ -57,7 +58,7 @@ const matchCounter = () => {
 };
 // chooses random objects from the items array
 const randomGenerator = (size = 4) => {
-    let tempArr = [...items];
+    let tempArr = [...items, ...items];
     let cardValues = [];
     size = (size * size) / 2;
     for (let i = 0; i < size; i++) {
@@ -69,18 +70,9 @@ const randomGenerator = (size = 4) => {
 };
 
 const cardMatrix = (cardValues, size = 4) => {
-    gameContainer.innerHTML = "";
     cardValues = [...cardValues, ...cardValues];
     cardValues.sort(() => Math.random() - 0.5);
-    for (let i = 0; i < size * size; i++) {
-
-        gameContainer.innerHTML += `
-        <div class="card-container" data-card-value="${cardValues[i].name}">
-            <div class="card-front"></div>
-            <div class="card-back">
-            <img src="${cardValues[i].image}" class="image"></div>
-        </div>
-        `;
+    for (let i = 0; i < size * size; i++) {    
     }
 
     gameContainer.style.gridTemplateColumns = `repeat(${size},auto)`;
@@ -143,6 +135,9 @@ endButton.addEventListener("click", (endGame = () => {
 // initializing game content now 
 
 const initializeBoard = () => {
+    outcome.innerText = "";
+    flipCount = 0;
+    matchCount = 0;
     let cardValues = randomGenerator();
     console.log('CARDS', cardValues);
     cardMatrix(cardValues);
