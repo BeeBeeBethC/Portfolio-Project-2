@@ -1,39 +1,60 @@
-const gameContainer = document.getElementById("container");
-const flipsHolder = document.querySelector('.flipsHolder').textContent = "0";
-const matchHolder = document.querySelector('.matchHolder').textContent = "0";
+const gameContainer = document.getElementById(".area");
+const flipsHolder = document.querySelector('.flipsHolder');
+const matchHolder = document.querySelector('.matchHolder');
 let cards = [];
 let card1, card2;
 let chosenCards = [0, 1];
 let chosenCardsIds = [0, 1];
-let flips = 0;
-let matches = 0;
 
-console.log('I AM CONNECTED');
+const items = [{name: "unicorn", image: "1.png"}, 
+               {name: "fae-folk", image: "2.png"}, 
+               {name: "alchemist", image: "3.png"}, 
+               {name: "wizard", image: "4.png"}, 
+               {name: "pirate", image: "5.png"}, 
+               {name: "elf-folk", image: "6.png"}, 
+               {name: "witch", image: "7.png"}, 
+               {name: "dragon", image: "8.png"}
+            ];
 
-/**
- * fisher yates shuffle algorithm this loop loops backwards through the cards array.
- *  
-*/ 
+const flipsCounter = () => {
+    flipsHolder += 1;
+    flipsCounter.innerHTML = `<span>Flips:</span>${flipsHolder}`
+};
 
-function cardShuffle() {
-    for (let i = cards.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        this.cards[j].style.order = i;
-        this.cards[i].style.order = cards[j];
+const matchesCounter = () => {
+    matchHolder += 1;
+    matchesCounter.innerHTML = `<span>Matches:</span>${matchHolder}`;
+};
+
+const randomGenerator = (size = 4) => {
+    let tempArr = [...items];
+    let cardValues = [];
+    size = (size * size) / 2; 
+    for (let i = 0; i < size; i++) {
+        const randomIndex = Math.floor(Math.random() * tempArr.length);
+        cardValues.push(tempArr[randomIndex]);
+        tempArr.splice(randomIndex, 1);
     }
-}
-cardShuffle();
-console.log('CARD SHUFFLE COMPLETE');
+    return cardValues;
+};
 
+const cardMatrix = (cardValues, size = 4) => {
+    gameContainer.innerHTML = "";
+    cardValues = [...cardValues, ...cardValues];
+    cardValues.sort(() => Math.random() - 0.5);
+    for (let i = 0; i < size*size; i++){
 
+    }
+};
 
-generateBoard();
+// initializing game content now initializeBoard();
 
-function generateBoard() {
-
-    const cards = document.createElement("div");
-    cards.textContent = `${loadedCards}`;
-    gameContainer.appendChild(cards);
+const initializeBoard = () => {
+    flipsCounter = 0;
+    matchesCounter = 0;
+    let cardValues = randomGenerator();
+    console.log('CARDS', cardValues);
+    cardMatrix(cardValues);
 };
 
 function flipCard() {
@@ -42,8 +63,8 @@ function flipCard() {
 }
 cards.forEach(cards => cards.addEventListener('click', flipCard));
 
-
-function checkForMatch() { // checks two cards selected and if both cards are the same the class matched is added
+// checks two cards selected and if both cards are the same the class matched is added
+function checkForMatch() { 
     card1 = chosenCardsIds[0];
     card2 = chosenCardsIds[1];
     if (chosenCards[0] === chosenCards[1]) {
@@ -56,8 +77,4 @@ function checkForMatch() { // checks two cards selected and if both cards are th
             return;
         }
     }
-}
-
-function resetBoard() {
-
-}
+};
