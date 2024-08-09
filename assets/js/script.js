@@ -10,34 +10,13 @@ let matches = 0;
 
 console.log('I AM CONNECTED');
 
-// removing the function ensures the fetch is conducted during the page load, rather than when a function is called
-fetch("assets/data/tile.json")
-    .then(response => {
-        console.log('IT WORKS!')
-        return response.json();
-    })
-    .then(loadedCards => {
-        console.log('CARDS: ', loadedCards);
+/**
+ * fisher yates shuffle algorithm this loop loops backwards through the cards array.
+ *  
+*/ 
 
-        // load the cards response from the tile.json file to your cards array
-        cards = loadedCards;
-        console.log('CARDS: ', cards);
-
-        const cardDeck = Array.prototype.concat(loadedCards, cards);
-        console.log('CARDDECK', cardDeck);
-    })
-    .catch(error => console.log(error));
-
-/* Display the original and cloned arrays
-console.log("CARDS: ", cardsList); // Output: [1, 2, 3, 4]
-console.log("I AM A CLONE OF CARDS ARRAY WHAT IS THIS SORCERY!: ", clonedArray); // Output: [1, 2, 3, 4]
-*/
-
-/* 
-fisher yates shuffle algorithm this loop loops backwards through the cards array.
-*/
 function cardShuffle() {
-    for (let i = cardDeck.length - 1; i > 0; i--) {
+    for (let i = cards.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         this.cards[j].style.order = i;
         this.cards[i].style.order = cards[j];
@@ -46,8 +25,7 @@ function cardShuffle() {
 cardShuffle();
 console.log('CARD SHUFFLE COMPLETE');
 
-document.addEventListener("DOMContentLoaded");
-console.log('DOM CONTENT READY');
+
 
 generateBoard();
 
