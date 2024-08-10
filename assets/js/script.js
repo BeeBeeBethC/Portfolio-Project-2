@@ -1,144 +1,165 @@
-const flips = document.querySelector(".flip-count").textContent = 0;
-const matches = document.querySelector(".match-count").textContent = 0;
 const gameArea = document.querySelector(".game-area");
-const controls = document.querySelector(".control-panel");
-const outcome = document.querySelector(".outcome");
-const playButton = document.getElementById("start");
-const endButton = document.getElementById("stop");
 const defaultImage = ("../assets/images/default.png");
-let cards;
-let firstCard = false;
-let secondCard = false;
+let outcome = document.getElementById(".outcome");
+let playButton = document.getElementById("start");
+let resetButton = document.getElementById("stop");
+let cards = [];
+let card1, card2;
+let flips = 0;
+let matches = 0;
+let lockPlay = false;
 
 cards = [{
         name: "unicorn",
-        image: "1.png"
+        image: "assets/images/1.png"
     },
     {
         name: "fae-folk",
-        image: "2.png"
+        image: "assets/images/2.png"
     },
     {
         name: "alchemist",
-        image: "3.png"
+        image: "assets/images/3.png"
     },
     {
         name: "wizard",
-        image: "4.png"
+        image: "assets/images/4.png"
     },
     {
         name: "pirate",
-        image: "5.png"
+        image: "assets/images/5.png"
     },
     {
         name: "elf-folk",
-        image: "6.png"
+        image: "assets/images/6.png"
     },
     {
         name: "witch",
-        image: "7.png"
+        image: "assets/images/7.png"
     },
     {
         name: "dragon",
-        image: "8.png"
+        image: "assets/images/8.png"
+    },
+    {
+        name: "unicorn",
+        image: "assets/images/1.png"
+    },
+    {
+        name: "fae-folk",
+        image: "assets/images/2.png"
+    },
+    {
+        name: "alchemist",
+        image: "assets/images/3.png"
+    },
+    {
+        name: "wizard",
+        image: "assets/images/4.png"
+    },
+    {
+        name: "pirate",
+        image: "assets/images/5.png"
+    },
+    {
+        name: "elf-folk",
+        image: "assets/images/6.png"
+    },
+    {
+        name: "witch",
+        image: "assets/images/7.png"
+    },
+    {
+        name: "dragon",
+        image: "assets/images/8.png"
     }
 ];
-// original flips and matches count
-let flipCount = 0;
-let matchCount = 0;
-//To calculate flips
-const flipCounter = () => {
-    flipCount += 1;
-    flips.innerHTML = `<span>Flips:</span> ${flipCount}`
-};
-//To calculate matches
-const matchCounter = () => {
-    matchCount += 1;
-    matches.innerHTML = `<span>Matches:</span> ${matchCount}`;
-};
-// chooses random objects from the items array
-const randomGenerator = (size = 4) => {
-    let tempArr = [...items, ...items];
-    let cardValues = [];
-    size = (size * size) / 2;
-    for (let i = 0; i < size; i++) {
-        const randomIndex = Math.floor(Math.random() * tempArr.length);
-        cardValues.push(tempArr[randomIndex]);
-        tempArr.splice(randomIndex, 1);
+
+shuffleCards();
+
+createDeck();
+
+// shuffles the cards array
+function shuffleCards() {
+    for (let i = cards.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let k = cards[i];
+        cards[i] = cards[j];
+        cards[j] = k;
     }
-    return cardValues;
-};
+    return cards;
+}
 
-const cardMatrix = (cardValues, size = 4) => {
-    cardValues = [...cardValues, ...cardValues];
-    cardValues.sort(() => Math.random() - 0.5);
-    for (let i = 0; i < size * size; i++) {    
+console.log('CARDS', cards);
+
+function createDeck() {
+    for (let card of cards) {
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        cardElement.setAttribute("data-name", card.name);
+        cardElement.innerHTML = `
+        <div class="card-front">
+            <img src=${defaultImage}>
+        </div>
+        <div class="card-back">
+            <img class="card-face" src=${card.image}>
+        </div>
+        `;
+        gameArea.appendChild(cardElement);
+        cardElement.addEventListener("click", flipCard);
+    }
+}
+
+function flipCard() {
+    if (lockPlay) return;
+    if (this === card1) return;
+    this.classList.add("flipped");
+    if (!card1) {
+        card1 = this;
+        return;
     }
 
-    gameContainer.style.gridTemplateColumns = `repeat(${size},auto)`;
+    card2 = this;
+    flips++;
+    lockPlay = true;
 
-    cards = document.querySelectorAll(".card-container");
-    cards.forEach((card) => {
-        card.addEventListener('click', () => {
-            if (!card.classList.contains("matched")) {
-                card.classList.add("flipped");
-                if (!firstCard) {
-                    firstCard = card;
-                    firstCardValue = card.getAttribute("data-card-value");
-                } else {
-                    flipCounter();
-                    secondCard = card;
-                    let secondCardValue = card.getAttribute("data-card-value");
-                    if (firstCardValue == secondCardValue) {
-                        firstCard.classList.add("matched");
-                        secondCard.classList.add("matched");
-                        firstCard = false;
-                        matchCount += 1;
-                        if (matchCount == Math.floor(cardValues.length / 2)) {
-                            outcome.innerHTML = `<h2>Well Done</h2>
-                            <h4>Flips: ${flipCount}</h4>`;
-                            endGame();
-                        }
-                    } else {
-                        let [tempFirst, tempSecond] = [firstCard, secondCard];
-                        firstCard = false;
-                        secondCard = false;
-                        let delay = setTimeout(() => {
-                            tempFirst.classList.remove("flipped");
-                            tempSecond.classList.remove("flipped");
-                        }, 400);
-                    }
-                }
-            }
-        });
-    });
+    checkForMatch();
+}
+
+// checks two cards selected and if both cards are the same the class matched is added
+function checkForMatch() {
+    let isMatched = card1.dataset.name === card2.dataset.name;
+    isMatched ? cardFreeze() : flipCardBack();
+}
+
+function cardFreeze() {
+    card1.removeEventListener("click", flipCard);
+    card2.removeEventListener("click", flipCard);
+    matches++;
+    if (matches === 8) {
+        document.querySelector(".matches").textContent = matches;
+        document.querySelector(".flips").textContent = flips;
+    }
+    resetGamePlay();
+}
+
+function flipCardBack() {
+    setTimeout(() => {
+        card1.classList.remove("flipped");
+        card2.classList.remove("flipped");
+        resetGamePlay();
+    }, 750);
+}
+
+function resetGamePlay() {
+    firstCard = null;
+    secondCard = null;
+    lockPlay = false;
 };
 
-//play game
-playButton.addEventListener("click", () => {
-    flipCount = 0;
-    matchCount = 0;
-    controls.classList.add("hide");
-    endButton.classList.remove("hide");
-    playButton.classList.add("hide");
-    flips.innerHTML = `<span>Flips:</span> ${flipCount}`
-    matches.innerHTML = `<span>Matches:</span> ${matchCount}`;
-    initializeBoard();
-});
-//end game
-endButton.addEventListener("click", (endGame = () => {
-    controls.classList.remove("hide");
-    endButton.classList.add("hide");
-    playButton.classList.remove("hide");
-})
-);
-// initializing game content now 
-
-const initializeBoard = () => {
-    outcome.innerText = "";
-    flipCount = 0;
-    matchCount = 0;
-    let cardValues = randomGenerator();
-    console.log('CARDS', cardValues);
-    cardMatrix(cardValues);
-};
+function restart() {
+    resetGamePlay();
+    shuffleCards();
+    createDeck();
+    resetButton.addEventListener("click", restart);
+}
