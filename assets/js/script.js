@@ -1,5 +1,5 @@
 const gameArea = document.querySelector(".game-area");
-const defaultImage = ("../assets/images/default.png");
+const defaultImage = ("assets/images/default.png");
 let playButton = document.getElementById("start");
 let resetButton = document.getElementById("stop");
 let cards = [];
