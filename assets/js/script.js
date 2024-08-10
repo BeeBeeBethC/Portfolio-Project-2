@@ -1,6 +1,5 @@
 const gameArea = document.querySelector(".game-area");
 const defaultImage = ("../assets/images/default.png");
-let outcome = document.getElementById(".outcome");
 let playButton = document.getElementById("start");
 let resetButton = document.getElementById("stop");
 let cards = [];
@@ -75,6 +74,12 @@ cards = [{
     }
 ];
 
+window.addEventListener("DOMContentLoaded", function() { 
+    console.log('DOM CONTENT LOADED');
+    // Code to be executed when the DOM is ready   
+
+
+
 shuffleCards();
 
 createDeck();
@@ -97,12 +102,13 @@ function createDeck() {
         const cardElement = document.createElement("div");
         cardElement.classList.add("card");
         cardElement.setAttribute("data-name", card.name);
+        cardElement.setAttribute("order", card.image); 
         cardElement.innerHTML = `
         <div class="card-front">
-            <img src=${defaultImage}>
+            <img alt="default-image" src=${defaultImage}>
         </div>
         <div class="card-back">
-            <img class="card-face" src=${card.image}>
+            <img class="card-face" alt="individual-character-cards" src=${card.image}>
         </div>
         `;
         gameArea.appendChild(cardElement);
@@ -119,25 +125,35 @@ function flipCard() {
         return;
     }
 
+    console.log("CARD VALUES", card1, this);
+
     card2 = this;
     flips++;
     lockPlay = true;
+
+    console.log('CARD VALUES', card2, this);
 
     checkForMatch();
 }
 
 // checks two cards selected and if both cards are the same the class matched is added
 function checkForMatch() {
-    let isMatched = card1.dataset.name === card2.dataset.name;
-    isMatched ? cardFreeze() : flipCardBack();
-}
+    card1 = cards.name, cards.image;
+    card2 = cards.name, cards.image;
+    if (card1 === card2) {
+        cardFreeze();
+    } else {
+        (card1 !== card2); {
+            flipCardBack();
+        }
+    }
+};
 
 function cardFreeze() {
-    card1.removeEventListener("click", flipCard);
-    card2.removeEventListener("click", flipCard);
+    card1.classList.remove("flipped").add("matched");
+    card2.classList.remove("flipped").add("matched");
     matches++;
     if (matches === 8) {
-        document.querySelector(".matches").textContent = matches;
         document.querySelector(".flips").textContent = flips;
     }
     resetGamePlay();
@@ -148,7 +164,7 @@ function flipCardBack() {
         card1.classList.remove("flipped");
         card2.classList.remove("flipped");
         resetGamePlay();
-    }, 750);
+    }, 900);
 }
 
 function resetGamePlay() {
@@ -158,8 +174,12 @@ function resetGamePlay() {
 };
 
 function restart() {
+    resetButton.addEventListener("click", restart);
     resetGamePlay();
     shuffleCards();
+    flips = 0;
+    matches = 0;
+    document.querySelector(".flips").textContent = flips;
+    gameArea.innerHTML = "";
     createDeck();
-    resetButton.addEventListener("click", restart);
-}
+}});

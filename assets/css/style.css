@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
-    background: #8a2be2;
+    background: #561990;
     justify-content: center;
     flex-wrap: wrap;
     font-family: "Cinzel Decorative", serif;
@@ -10,46 +14,40 @@ body {
     font-style: normal;
 }
 
-/*main webpage grid layout*/
-.container {
-    display: grid;
-    height: 800px;
-    width: 800px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.2fr 3.8fr;
-    gap: .5rem;
-    grid-template-areas:
-        "top top top top"
-        "main main main main";
-}
-
-.info-container {
-    background: radial-gradient(#8a2be2, #d1b2fc, #fff);
-    color: black;
-    justify-content: space-around;
-    font-size: 60px;
-    font-weight: 700;
+h1{
+    color: #d1b2fc;
+    justify-self: center;
     grid-area: top;
+}
+.info-container {
+    grid-area: main;
     padding: 5px;
 }
 
 .game-area {
-    grid-area: main;
-    position: relative;
-    width: 100%;
     display: flex;
-    gap: 0.4em;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    row-gap: 5px;
+    column-gap: 5px;
+    padding-top: 5px;
+    margin: auto;
+    background: radial-gradient(#8a2be2, #d1b2fc, #fff);
     border: 8px solid black;
-    border-radius: 50px;
+    border-radius: 15px;
 }
 
-#button {
-    height: 60px;
-    width: 150px;
+.stop {
+    justify-self: end;
+    grid-area: top;
+    height: 50px;
+    width: 100px;
     background-color: #561990;
     color: #d1b2fc;
     border-radius: 15px;
-    border: 2px solid black;
+    border: 2px solid #d1b2fc;
     font-family: "Cinzel Decorative", serif;
     font-weight: 700;
     font-style: normal;
@@ -57,49 +55,60 @@ body {
     letter-spacing: 2px;
 }
 
-#button:hover {
+.stop:hover {
     background-color: #d1b2fc;
-    cursor: pointer;
     color: #561990;
+    border: 2px solid black;
+    cursor: pointer;
 }
-
-#game-area {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    row-gap: 8px;
-    column-gap: 8px;
+.flip-count,
+.match-count {
+    color: #d1b2fc;
+    font-size: 1em;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+    justify-self: space-around;
 }
 
 /* The following elements are in the JS document styled when they appear in HTML*/
+.card {
+    border-radius: 15px;
+    height: 50px;
+    width: 50px;
+}
+img{
+    height: 50px;
+    width: 50px;
+}
 .card-front,
 .card-back {
     position: absolute;
     border-radius: 15px;
     border: 2px solid #000;
-    width: 100%;
-    height: 100%;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.7s ease-out;
-    backface-visibility: hidden;
+    
 }
 
-.card-front {
+.card-back {
     background-image: url("../images/default.png");
     background-size: cover;
     background-position: center center;
     border-radius: 15px;
-    backface-visibility: hidden;
+    transform: rotateY(180deg);
 }
 
-.card-back {
-    display:flex;
+.card-front {
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    transform: rotateY(180deg);
+    backface-visibility: hidden;
 }
 
 .card.flipped {
