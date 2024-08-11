@@ -4,8 +4,9 @@ let playButton = document.getElementById("start");
 let resetButton = document.getElementById("stop");
 let cards = [];
 let card1, card2;
-let flips = 0;
-let matches = 0;
+let chosenCard, chosenCard2;
+let flips = document.getElementById("flip-count");
+let matches = document.querySelector(".match-count");
 let lockPlay = false;
 
 cards = [{
@@ -74,12 +75,6 @@ cards = [{
     }
 ];
 
-window.addEventListener("DOMContentLoaded", function() { 
-    console.log('DOM CONTENT LOADED');
-    // Code to be executed when the DOM is ready   
-
-
-
 shuffleCards();
 
 createDeck();
@@ -125,39 +120,37 @@ function flipCard() {
         return;
     }
 
-    console.log("CARD VALUES", card1, this);
+    console.log("FIRST CARD VALUES", card1);
 
     card2 = this;
     flips++;
     lockPlay = true;
 
-    console.log('CARD VALUES', card2, this);
+    console.log('SECOND CARD VALUES', card2);
 
     checkForMatch();
 }
 
-// checks two cards selected and if both cards are the same the class matched is added
+// checks two cards selected and if both cards are the same cards are frozen on display.
 function checkForMatch() {
-    card1 = cards.name, cards.image;
-    card2 = cards.name, cards.image;
-    if (card1 === card2) {
+    if (card1.dataset.name === card2.dataset.name) {
         cardFreeze();
     } else {
-        (card1 !== card2); {
+        if (card1 !== card2) {
             flipCardBack();
         }
     }
 };
 
 function cardFreeze() {
-    card1.classList.remove("flipped").add("matched");
-    card2.classList.remove("flipped").add("matched");
+    card1.removeEventListener("click", flipCard);
+    card2.removeEventListener("click", flipCard);
     matches++;
     if (matches === 8) {
         document.querySelector(".flips").textContent = flips;
     }
     resetGamePlay();
-}
+};
 
 function flipCardBack() {
     setTimeout(() => {
@@ -165,11 +158,11 @@ function flipCardBack() {
         card2.classList.remove("flipped");
         resetGamePlay();
     }, 900);
-}
+};
 
 function resetGamePlay() {
-    firstCard = null;
-    secondCard = null;
+    card1 = null;
+    card2 = null;
     lockPlay = false;
 };
 
@@ -182,4 +175,4 @@ function restart() {
     document.querySelector(".flips").textContent = flips;
     gameArea.innerHTML = "";
     createDeck();
-}});
+};
