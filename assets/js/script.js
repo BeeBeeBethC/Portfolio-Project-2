@@ -3,7 +3,6 @@ const defaultImage = ("../assets/images/default.png");
 let resetButton = document.getElementById("stop");
 let cards = [];
 let card1, card2;
-let x = 0;
 let lockPlay = false;
 
 cards = [{
@@ -95,6 +94,7 @@ function createDeck() {
         cardElement.classList.add("card");
         cardElement.setAttribute("data-name", card.name);
         cardElement.setAttribute("data-order", card.image);
+        cardElement.addEventListener("click", flipCard);
         cardElement.innerHTML = `
             <div class="card-front">
                 <img alt="default-image" src=${defaultImage}>
@@ -104,12 +104,12 @@ function createDeck() {
             </div>
         `;
         gameArea.appendChild(cardElement);
-        cardElement.addEventListener("click", flipCard);
     }
 }
 
 function flipCard() {
-    if (lockPlay || this === card1) return;
+    if (lockPlay || this === card1) return; 
+    // prevents > two cards being clicked and also disables interaction with matched cards.
     this.classList.add("flipped");
 
     if (!card1) {
@@ -137,11 +137,11 @@ function checkForMatch() {
 };
 
 function cardFreeze() {
-    card2.removeEventListener("click", flipCard);
-    card2.classList.add("matched");
     card1.removeEventListener("click", flipCard);
     card1.classList.add("matched");
-        resetGamePlay();
+    card2.removeEventListener("click", flipCard);
+    card2.classList.add("matched");       
+    resetGamePlay();
 };
 
 function flipCardBack() {
