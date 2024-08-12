@@ -82,7 +82,7 @@ h1{
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
     cursor: pointer;
 }
 
@@ -93,22 +93,22 @@ h1{
 .card-front,
 .card-back {
     position: absolute;
-  border-radius: 15px;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 4px solid #000000;
-  transition: transform 0.7s ease-out;
-  backface-visibility: hidden;
+    border-radius: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #000000;
+    transition: transform 0.7s ease-out;
 }
 
 .card-front {
     background-image: url("/assets/images/default.png");
     height: 60px;
     width: 60px;
-    border-radius: 15px;   
+    border-radius: 15px;
+    backface-visibility: hidden;   
 }
 
 .card-back {

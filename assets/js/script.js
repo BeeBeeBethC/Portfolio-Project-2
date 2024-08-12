@@ -75,27 +75,6 @@ cards = [{
     }
 ];
 
-let seconds = 0;
-let minutes = 0;
-let matchCount = 0;
-
-//Timer
-const timer = () => {
-  seconds += 1;
-  if (seconds >= 60) {
-    minutes += 1;
-    seconds = 0;
-  }
-  let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
-  let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
-  timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
-};
-// Matches
-const matchCounter = () => {
-  matchCount += 1;
-  matches.innerHTML = `<span>Moves:</span>${matchCount}`;
-};
-
 shuffleCards();
 
 createDeck();
@@ -165,8 +144,7 @@ function cardFreeze() {
     card1.removeEventListener("click", flipCard);
     card1.classList.add("matched");
     card2.removeEventListener("click", flipCard);
-    card2.classList.add("matched");
-    matchCount++;       
+    card2.classList.add("matched");      
     resetGamePlay();
 };
 
@@ -182,27 +160,4 @@ function resetGamePlay() {
     card1 = null;
     card2 = null;
     lockPlay = false;
-};
-
-function playGame() {
-    startButton.addEventListener("click");
-    movesCount = 0;
-    seconds = 0;
-    minutes = 0;
-    controls.classList.add("hide");
-    stopButton.classList.remove("hide");
-    startButton.classList.add("hide");
-    interval = setInterval(timeGenerator, 1000);
-    shuffleCards();
-    resetGamePlay();
-    gameArea.innerHTML = "";
-    createDeck();
-};
-
-function stopGamePlay() {
-    stopButton.addEventListener("click");
-    controls.classList.remove("hide");
-    stopButton.classList.add("hide");
-    startButton.classList.remove("hide");
-    clearInterval(interval);
 };
