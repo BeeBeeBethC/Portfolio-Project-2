@@ -81,7 +81,6 @@ h1{
     position: relative;
     transition: transform 0.7s;
     transform-style: preserve-3d;
-    perspective: 60px;
 }
 .card:hover{
     cursor: pointer;
@@ -102,11 +101,12 @@ h1{
     background-image: url("../assets/images/default.png");
 }
 
-.card-front > img {
+.card-back {
     overflow: hidden;
     height: 60px;
     width: 60px;
     border-radius: 15px;
+    
 }
 
 .card-back {
