@@ -1,12 +1,9 @@
 const gameArea = document.querySelector(".game-area");
-const defaultImage = ("assets/images/default.png");
-let playButton = document.getElementById("start");
+const defaultImage = ("../assets/images/default.png");
 let resetButton = document.getElementById("stop");
 let cards = [];
 let card1, card2;
-let chosenCard, chosenCard2;
-let flips = document.getElementById("flip-count");
-let matches = document.querySelector(".match-count");
+let x = 0;
 let lockPlay = false;
 
 cards = [{
@@ -97,14 +94,14 @@ function createDeck() {
         const cardElement = document.createElement("div");
         cardElement.classList.add("card");
         cardElement.setAttribute("data-name", card.name);
-        cardElement.setAttribute("order", card.image); 
+        cardElement.setAttribute("data-order", card.image);
         cardElement.innerHTML = `
-        <div class="card-front">
-            <img alt="default-image" src=${defaultImage}>
-        </div>
-        <div class="card-back">
-            <img class="card-face" alt="individual-character-cards" src=${card.image}>
-        </div>
+            <div class="card-front">
+                <img alt="default-image" src=${defaultImage}>
+            </div>
+            <div class="card-back">
+                <img class="card-face" alt="individual-character-cards" src=${card.image}>
+            </div>
         `;
         gameArea.appendChild(cardElement);
         cardElement.addEventListener("click", flipCard);
@@ -112,44 +109,39 @@ function createDeck() {
 }
 
 function flipCard() {
-    if (lockPlay) return;
-    if (this === card1) return;
+    if (lockPlay || this === card1) return;
     this.classList.add("flipped");
+
     if (!card1) {
         card1 = this;
-        return;
+        console.log("FIRST CARD VALUES", card1);
+    } else {
+        card2 = this;
+        console.log('SECOND CARD VALUES', card2);
+        lockPlay = true;
+        checkForMatch();
     }
-
-    console.log("FIRST CARD VALUES", card1);
-
-    card2 = this;
-    flips++;
-    lockPlay = true;
-
-    console.log('SECOND CARD VALUES', card2);
-
-    checkForMatch();
 }
 
 // checks two cards selected and if both cards are the same cards are frozen on display.
 function checkForMatch() {
-    if (card1.dataset.name === card2.dataset.name) {
+    if (card1.dataset.name === card2.dataset.name && card1.dataset.order === card2.dataset.order) {
+        console.log('BOTH ELEMENTS HAVE THE SAME DATA-NAME AND DATA-ORDER');
         cardFreeze();
-    } else {
-        if (card1 !== card2) {
-            flipCardBack();
+        } else {
+        if (card1.dataset.name !== card2.dataset.name && card1.dataset.order !== card2.dataset.order) {
+            console.log('DATA ELEMENTS DO NOT MATCH');
         }
     }
+    flipCardBack();
 };
 
 function cardFreeze() {
-    card1.removeEventListener("click", flipCard);
     card2.removeEventListener("click", flipCard);
-    matches++;
-    if (matches === 8) {
-        document.querySelector(".flips").textContent = flips;
-    }
-    resetGamePlay();
+    card2.classList.add("matched");
+    card1.removeEventListener("click", flipCard);
+    card1.classList.add("matched");
+        resetGamePlay();
 };
 
 function flipCardBack() {
@@ -167,12 +159,9 @@ function resetGamePlay() {
 };
 
 function restart() {
-    resetButton.addEventListener("click", restart);
-    resetGamePlay();
+    resetButton.addEventListener("click");
     shuffleCards();
-    flips = 0;
-    matches = 0;
-    document.querySelector(".flips").textContent = flips;
+    resetGamePlay();
     gameArea.innerHTML = "";
     createDeck();
 };

@@ -23,7 +23,8 @@ h1{
     grid-area: top;
 }
 .info-container {
-    grid-area: main;
+    display: flex;
+    flex-direction: column;
     padding: 5px;
 }
 
@@ -43,7 +44,7 @@ h1{
 }
 
 .stop {
-    justify-self: end;
+    justify-self: center;
     height: 50px;
     width: 100px;
     background-color: #561990;
@@ -79,11 +80,16 @@ h1{
     height: 60px;
     width: 60px;
     position: relative;
-    transition: transform 0.7s;
+    transition: transform 1s;
     transform-style: preserve-3d;
-}
-.card:hover{
     cursor: pointer;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.card:hover {
     opacity: 0.8;
 }
 
@@ -92,23 +98,31 @@ h1{
     height: 60px;
     width: 60px;
     border-radius: 15px;
-    box-shadow: 0 0 5px 2px rbga(50, 50, 50, 0.25);
     position: absolute;
     backface-visibility: hidden;
+    overflow: hidden;
 }
 
 .card-front {
-    background-image: url("../assets/images/default.png");
+    background-image: url("/assets/images/default.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.card-back {
-    overflow: hidden;
+.card-front > img {
     height: 60px;
     width: 60px;
     border-radius: 15px;
-    
 }
 
-.card-back {
+.card-back > img{
     transform: rotateY(180deg);
+    height: 60px;
+    width: 60px;
+    border-radius: 15px;
+}
+
+.matched {
+    transform: none;
 }
