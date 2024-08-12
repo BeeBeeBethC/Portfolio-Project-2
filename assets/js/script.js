@@ -82,18 +82,15 @@ let matchCount = 0;
 //Timer
 const timer = () => {
   seconds += 1;
-  //minutes logic
   if (seconds >= 60) {
     minutes += 1;
     seconds = 0;
   }
-  // Time format
   let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
   let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
   timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
 };
-
-//To calculate moves
+// Matches
 const matchCounter = () => {
   matchCount += 1;
   matches.innerHTML = `<span>Moves:</span>${matchCount}`;
