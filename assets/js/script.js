@@ -1,7 +1,11 @@
 const gameArea = document.querySelector(".game-area");
 const defaultImage = ("../assets/images/default.png");
+const controls = document.getElementById(".info-container");
+let matches = document.getElementById("match-count");
+let timeValue = document.getElementById("time");
 let resetButton = document.getElementById("stop");
 let cards = [];
+let interval; 
 let card1, card2;
 let lockPlay = false;
 
@@ -71,6 +75,30 @@ cards = [{
     }
 ];
 
+let seconds = 0;
+let minutes = 0;
+let matchCount = 0;
+
+//Timer
+const timer = () => {
+  seconds += 1;
+  //minutes logic
+  if (seconds >= 60) {
+    minutes += 1;
+    seconds = 0;
+  }
+  // Time format
+  let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
+  let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
+  timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
+};
+
+//To calculate moves
+const matchCounter = () => {
+  matchCount += 1;
+  matches.innerHTML = `<span>Moves:</span>${matchCount}`;
+};
+
 shuffleCards();
 
 createDeck();
@@ -95,7 +123,7 @@ function createDeck() {
         cardElement.setAttribute("data-name", card.name);
         cardElement.setAttribute("data-order", card.image);
         cardElement.addEventListener("click", flipCard);
-        cardElement.innerHTML = `
+        cardElement.innerHTML =`
             <div class="card-front">
                 <img alt="default-image" src=${defaultImage}>
             </div>
@@ -140,7 +168,8 @@ function cardFreeze() {
     card1.removeEventListener("click", flipCard);
     card1.classList.add("matched");
     card2.removeEventListener("click", flipCard);
-    card2.classList.add("matched");       
+    card2.classList.add("matched");
+    matchCount++;       
     resetGamePlay();
 };
 
@@ -158,10 +187,25 @@ function resetGamePlay() {
     lockPlay = false;
 };
 
-function restart() {
-    resetButton.addEventListener("click");
+function playGame() {
+    startButton.addEventListener("click");
+    movesCount = 0;
+    seconds = 0;
+    minutes = 0;
+    controls.classList.add("hide");
+    stopButton.classList.remove("hide");
+    startButton.classList.add("hide");
+    interval = setInterval(timeGenerator, 1000);
     shuffleCards();
     resetGamePlay();
     gameArea.innerHTML = "";
     createDeck();
+};
+
+function stopGamePlay() {
+    stopButton.addEventListener("click");
+    controls.classList.remove("hide");
+    stopButton.classList.add("hide");
+    startButton.classList.remove("hide");
+    clearInterval(interval);
 };
