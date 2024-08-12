@@ -131,9 +131,9 @@ function checkForMatch() {
         } else {
         if (card1.dataset.name !== card2.dataset.name && card1.dataset.order !== card2.dataset.order) {
             console.log('DATA ELEMENTS DO NOT MATCH');
+            flipCardBack();
         }
-    }
-    flipCardBack();
+    }    
 };
 
 function cardFreeze() {

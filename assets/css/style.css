@@ -82,6 +82,7 @@ h1{
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
+    transform: rotateY(180deg);
     cursor: pointer;
 }
 
@@ -99,15 +100,17 @@ h1{
     width: 60px;
     border-radius: 15px;
     position: absolute;
-    backface-visibility: hidden;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-front {
     background-image: url("/assets/images/default.png");
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 15px;   
 }
 
 .card-front > img {
@@ -116,13 +119,12 @@ h1{
     border-radius: 15px;
 }
 
-.card-back > img{
-    transform: rotateY(180deg);
+.card-back > img {
     height: 60px;
     width: 60px;
     border-radius: 15px;
 }
 
 .matched {
-    transform: none;
+    transform: rotateY(0deg);
 }
