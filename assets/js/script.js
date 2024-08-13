@@ -115,6 +115,7 @@ function flipCard() {
     if (lockPlay || this === card1) return; 
     // prevents > two cards being clicked and also disables interaction with matched cards.
     this.classList.add("flipped");
+    console.log('CARD FLIPPED:', this);
 
     if (!card1) {
         card1 = this;
