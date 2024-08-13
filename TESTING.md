@@ -23,3 +23,10 @@ TODO add in amiresponsive screenshot of finished webpage.
 ![Desktop-wireframe](assets/documentation-screenshots/Desktop-Game-Wireframe.png)
 ![tablet-wireframe](assets/documentation-screenshots/tablet-game-wireframe.png)
 ![mobile-wireframe](assets/documentation-screenshots/mobile-game-wireframe.png)
+
+## Debugging
+known bugs 
+- cards would only partially flip and have a delay showing the image.
+
+resolved bugs
+- Cards now flip as expected, this bug was due to a line of code that was in my css styles document that had a transform animation of 1 second ease. and also by having a conflicting hover animation. By removing the transform animation and the hover animation it is flipping cards immediately. 
