@@ -15,6 +15,8 @@ body {
     font-family: "Cinzel Decorative", serif;
     font-weight: 700;
     font-style: normal;
+    font-size: 1em;
+    color:#d1b2fc;
 }
 
 h1{
@@ -22,10 +24,34 @@ h1{
     justify-self: center;
     grid-area: top;
 }
-.info-container {
+
+.controls-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 2px solid white;
     padding: 5px;
+}
+
+button {
+    justify-self: center;
+    height: 25px;
+    width: 50px;
+    background-color: #561990;
+    border-radius: 25px;
+    border: 2px solid #d1b2fc;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1em;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    background-color: #d1b2fc;
+    color: #000000;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
 .game-area {
@@ -43,29 +69,11 @@ h1{
     border-radius: 15px;
 }
 
-.stop {
-    justify-self: center;
-    height: 50px;
-    width: 100px;
-    background-color: #561990;
-    color: #d1b2fc;
-    border-radius: 15px;
-    border: 2px solid #d1b2fc;
-    font-family: "Cinzel Decorative", serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 1em;
-    letter-spacing: 2px;
+.main {
+    display: flex;
 }
 
-.stop:hover {
-    background-color: #d1b2fc;
-    color: #561990;
-    border: 2px solid black;
-    cursor: pointer;
-}
-.flip-count,
-.match-count {
+.flip-count {
     color: #d1b2fc;
     font-size: 1em;
     font-family: "Cinzel Decorative", serif;

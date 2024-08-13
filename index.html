@@ -16,18 +16,20 @@
         <h1>Mystic Match</h1>
     </header>
     <main>
-        <div class="info-container">
-            <div id="match-count">
-            <div id="time">
-                <button id="stop" class="hide">Reset</button>
-                <button id="start">Start Game</button>
-            </div>
-            </div>
-            <div class="game-area">
-                <!-- generated card output via JavaScript in console will be here -->
-            </div>
+        <section id="controls">
+        <div class="controls-container">
+            <div id="time"> Time: <span id="time-remaining">180</span></div>
+                <button id="reset"><i class="fa-solid fa-rotate-right" style="color: #d1b2fc;"></i></button>
+            <div id="moves"> Flips: <span id="flip-count">0</span></div>
         </div>
+        </section>
+        <section id="game-container">
+                <div class="game-area">
+                    <!-- generated card output via JavaScript in console will be here -->
+                </div>
+        </section>
     </main>
+    <script src="https://kit.fontawesome.com/7a4e6351e1.js" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 

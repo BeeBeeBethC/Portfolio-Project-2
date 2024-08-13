@@ -1,9 +1,9 @@
 const gameArea = document.querySelector(".game-area");
 const defaultImage = ("../assets/images/default.png");
-const controls = document.getElementById(".info-container");
+const controls = document.getElementById(".controls-container");
+const resetButton = document.getElementById(".reset");
 let matches = document.getElementById("match-count");
 let timeValue = document.getElementById("time");
-let resetButton = document.getElementById("stop");
 let cards = [];
 let interval; 
 let card1, card2;
@@ -161,4 +161,16 @@ function resetGamePlay() {
     card1 = null;
     card2 = null;
     lockPlay = false;
+};
+
+function reset() {
+    resetButton.addEventListener("click", reset);
+    card1 = null;
+    card2 = null;
+    lockPlay = false;
+    interval = 0;
+    matchCount = 0;
+    flipCardBack();
+    shuffleCards();
+    createDeck();
 };
