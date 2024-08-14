@@ -85,9 +85,11 @@ h1{
     transition: ease;
 }
 
+/*
 .card-front {
     background-image: url("/assets/images/default.png");   
 }
+*/
 
 .card-back {
     transform: rotateY(180deg);
