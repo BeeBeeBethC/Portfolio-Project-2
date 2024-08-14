@@ -1,9 +1,8 @@
 const gameArea = document.querySelector(".game-area");
 const defaultImage = ("./assets/images/default.png");
 const controls = document.getElementById(".controls-container");
-const reset = document.getElementById(".reset");
-let matches = document.getElementById("match-count");
-let timeValue = document.getElementById("time");
+let flips = document.getElementById("flip-count");
+let timeValue = document.getElementById("time-remaining");
 let cards = [];
 let interval; 
 let card1, card2;

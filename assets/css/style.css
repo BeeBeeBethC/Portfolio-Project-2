@@ -74,7 +74,7 @@ h1{
 .card-front,
 .card-back {
     position: absolute;
-    border-radius: 15px;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     display: flex;
@@ -85,11 +85,10 @@ h1{
     transition: ease;
 }
 
-/*
+
 .card-front {
     background-image: url("/assets/images/default.png");   
 }
-*/
 
 .card-back {
     transform: rotateY(180deg);
