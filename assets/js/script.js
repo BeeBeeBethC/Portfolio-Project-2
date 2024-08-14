@@ -1,14 +1,13 @@
 const gameArea = document.querySelector(".game-area");
-const defaultImage = ("./assets/images/default.png");
-const controls = document.getElementById(".controls-container");
-let flips = document.getElementById("flip-count");
+const defaultImage = "./assets/images/default.png";
+const controls = document.querySelector(".controls-container");
+let flipCount = document.getElementById("flip-count");
 let timeValue = document.getElementById("time-remaining");
 let cards = [];
 let overlays = [];
 let interval;
 let card1, card2;
 let lockPlay = false;
-
 let shuffleCardsComplete = false;
 let createDeckComplete = false;
 let loadOverlaysComplete = false;
@@ -93,11 +92,60 @@ overlays = [{
     },
 ];
 
+class MysticMatch {
+    constructor(totalTime, cards) {
+        this.cardsArray = cards;
+        this.totalTime = totalTime;
+        this.timeRemaining = totalTime;
+        this.flipCount = 0;
+        this.timer = document.getElementById("time-remaining");
+        this.flips = document.getElementById("flip-count");
+    }
+    
+    startGame() {
+        this.flipCount = 0;
+        this.timeRemaining = this.totalTime;
+        this.matchedCards = [];
+        this.lockPlay = true;
+        setTimeout(() => {
+            shuffleCards();
+            this.countdown = this.startCountdown();
+            this.lockPlay = false;
+        }, 1000)
+        this.resetGamePlay();
+        this.timer.innerText = this.timeRemaining;
+        this.flips.innerText = this.flipCount;
+    }
+
+    startCountdown() {
+        return setInterval(() => {
+            this.timeRemaining--;
+            this.timer.innerText = this.timeRemaining;
+            if(this.timeRemaining === 0)
+                this.gameOver();
+        }, 1000);
+    }
+
+    gameOver() {
+        clearInterval(this.countdown);
+        document.getElementById('game-over-text').classList.add('visible');
+    }
+
+    winner() {
+        clearInterval(this.countdown);
+        document.getElementById('you-won-text').classList.add('visible');
+    }
+    
+    resetGamePlay() {
+        card1 = null;
+        card2 = null;
+        lockPlay = false;
+    }
+};
+
 shuffleCards();
 
 createDeck();
-
-loadOverlays();
 
 ready();
 
@@ -108,11 +156,11 @@ function shuffleCards() {
         let k = cards[i];
         cards[i] = cards[j];
         cards[j] = k;
-        console.log('SHUFFLE CARDS FUNCTION COMPLETE', cards);
-        shuffleCardsComplete = true;
-        checkIfReady();
-    }
-}
+    }   
+    console.log('SHUFFLE CARDS FUNCTION COMPLETE', cards);
+    shuffleCardsComplete = true;
+    checkIfReady();    
+};
 
 function createDeck() {
     for (let card of cards) {
@@ -120,7 +168,7 @@ function createDeck() {
         cardElement.classList.add("card");
         cardElement.setAttribute("data-name", card.name);
         cardElement.setAttribute("data-order", card.image);
-        cardElement.addEventListener("click", flipCard);
+        cardElement.addEventListener("click", canFlipCard);
         cardElement.innerHTML = `
             <div class="card-front">
                 <img alt="default-image" src=${defaultImage}>
@@ -130,41 +178,40 @@ function createDeck() {
             </div>
         `;
         gameArea.appendChild(cardElement);
-        console.log('CREATE DECK FUNCTION COMPLETE', cards);
-        createDeckComplete = true;
-        checkIfReady();
-    }
-}
+    }   
+    console.log('CREATE DECK FUNCTION COMPLETE', cards);
+    createDeckComplete = true;
+    checkIfReady();
+};
 
 
-function loadOverlays() {
-
-
-}
 
 function checkIfReady() {
     if (shuffleCardsComplete === true && createDeckComplete === true) {
         ready();
-        console.log("BOTH FUNCTIONS ARE COMPLETE. READY FUNCTION CALLED")
+        console.log("BOTH FUNCTIONS ARE COMPLETE. READY FUNCTION CALLED");
     } else {
         console.log("WAITING FOR FUNCTIONS TO COMPLETE");
     }
-}
+};
 
 console.log("CARDS SHUFFLED AND DECK READY", cards);
 
 function ready() {
     let overlays = Array.from(document.getElementsByClassName('overlay-text'));
+    let game = new MysticMatch(90, cards);
     overlays.forEach(overlay => {
         overlay.addEventListener("click", () => {
             overlay.classList.remove('visible');
-            // game.startGame();
+            game.startGame();
         });
     });
-}
+};
 
-function flipCard() {
+function canFlipCard() {
     if (lockPlay || this === card1) return;
+    flipCount++;
+    flipCount.innerText = document.getElementById("flip-count");
     // prevents > two cards being clicked and also disables interaction with matched cards.
     this.classList.add("flipped");
     console.log('CARD FLIPPED:', this);
@@ -178,7 +225,7 @@ function flipCard() {
         lockPlay = true;
         checkForMatch();
     }
-}
+};
 
 // checks two cards selected and if both cards are the same cards are frozen on display.
 function checkForMatch() {
@@ -194,9 +241,9 @@ function checkForMatch() {
 };
 
 function cardFreeze() {
-    card1.removeEventListener("click", flipCard);
+    card1.removeEventListener("click", canFlipCard);
     card1.classList.add("matched");
-    card2.removeEventListener("click", flipCard);
+    card2.removeEventListener("click", canFlipCard);
     card2.classList.add("matched");
     resetGamePlay();
 };
@@ -204,7 +251,9 @@ function cardFreeze() {
 function flipCardBack() {
     setTimeout(() => {
         card1.classList.remove("flipped");
+        card1.classList.remove("matched");
         card2.classList.remove("flipped");
+        card2.classList.remove("matched");
         resetGamePlay();
     }, 1000);
 };
@@ -213,4 +262,4 @@ function resetGamePlay() {
     card1 = null;
     card2 = null;
     lockPlay = false;
-};
+}
