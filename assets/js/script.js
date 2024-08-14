@@ -4,9 +4,14 @@ const controls = document.getElementById(".controls-container");
 let flips = document.getElementById("flip-count");
 let timeValue = document.getElementById("time-remaining");
 let cards = [];
-let interval; 
+let overlays = [];
+let interval;
 let card1, card2;
 let lockPlay = false;
+
+let shuffleCardsComplete = false;
+let createDeckComplete = false;
+let loadOverlaysComplete = false;
 
 cards = [{
         name: "unicorn",
@@ -74,9 +79,27 @@ cards = [{
     }
 ];
 
+overlays = [{
+        id: "overlay-text",
+        loaded: "false"
+    },
+    {
+        id: "game-over-text",
+        loaded: "false"
+    },
+    {
+        id: "you-won-text",
+        loaded: "false"
+    },
+];
+
 shuffleCards();
 
 createDeck();
+
+loadOverlays();
+
+ready();
 
 // shuffles the cards array
 function shuffleCards() {
@@ -85,11 +108,11 @@ function shuffleCards() {
         let k = cards[i];
         cards[i] = cards[j];
         cards[j] = k;
+        console.log('SHUFFLE CARDS FUNCTION COMPLETE', cards);
+        shuffleCardsComplete = true;
+        checkIfReady();
     }
-    return cards;
 }
-
-console.log('CARDS', cards);
 
 function createDeck() {
     for (let card of cards) {
@@ -98,7 +121,7 @@ function createDeck() {
         cardElement.setAttribute("data-name", card.name);
         cardElement.setAttribute("data-order", card.image);
         cardElement.addEventListener("click", flipCard);
-        cardElement.innerHTML =`
+        cardElement.innerHTML = `
             <div class="card-front">
                 <img alt="default-image" src=${defaultImage}>
             </div>
@@ -107,11 +130,41 @@ function createDeck() {
             </div>
         `;
         gameArea.appendChild(cardElement);
+        console.log('CREATE DECK FUNCTION COMPLETE', cards);
+        createDeckComplete = true;
+        checkIfReady();
     }
 }
 
+
+function loadOverlays() {
+
+
+}
+
+function checkIfReady() {
+    if (shuffleCardsComplete === true && createDeckComplete === true) {
+        ready();
+        console.log("BOTH FUNCTIONS ARE COMPLETE. READY FUNCTION CALLED")
+    } else {
+        console.log("WAITING FOR FUNCTIONS TO COMPLETE");
+    }
+}
+
+console.log("CARDS SHUFFLED AND DECK READY", cards);
+
+function ready() {
+    let overlays = Array.from(document.getElementsByClassName('overlay-text'));
+    overlays.forEach(overlay => {
+        overlay.addEventListener("click", () => {
+            overlay.classList.remove('visible');
+            // game.startGame();
+        });
+    });
+}
+
 function flipCard() {
-    if (lockPlay || this === card1) return; 
+    if (lockPlay || this === card1) return;
     // prevents > two cards being clicked and also disables interaction with matched cards.
     this.classList.add("flipped");
     console.log('CARD FLIPPED:', this);
@@ -132,19 +185,19 @@ function checkForMatch() {
     if (card1.dataset.name === card2.dataset.name && card1.dataset.order === card2.dataset.order) {
         console.log('BOTH ELEMENTS HAVE THE SAME DATA-NAME AND DATA-ORDER');
         cardFreeze();
-        } else {
+    } else {
         if (card1.dataset.name !== card2.dataset.name && card1.dataset.order !== card2.dataset.order) {
             console.log('DATA ELEMENTS DO NOT MATCH');
             flipCardBack();
         }
-    }    
+    }
 };
 
 function cardFreeze() {
     card1.removeEventListener("click", flipCard);
     card1.classList.add("matched");
     card2.removeEventListener("click", flipCard);
-    card2.classList.add("matched");      
+    card2.classList.add("matched");
     resetGamePlay();
 };
 
