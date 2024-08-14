@@ -16,10 +16,22 @@
         <h1>Mystic Match</h1>
     </header>
     <main>
+        <section>
+            <div class="overlay-text">
+                Click to Start
+            </div>
+            <div id="game-over-text" class="overlay-text">
+                Game Over
+                <span class="overlay-text-small">Click to Restart</span>
+            </div>
+            <div id="you-won-text" class="overlay-text">
+                You Won!
+                <span class="overlay-text-small">Click to Restart</span>
+            </div>
+        </section>
         <section id="controls">
         <div class="controls-container">
             <div id="time"> Time: <span id="time-remaining">180</span></div>
-                <button id="reset"><i class="fa-solid fa-rotate-right" style="color: #d1b2fc;"></i></button>
             <div id="moves"> Flips: <span id="flip-count">0</span></div>
         </div>
         </section>

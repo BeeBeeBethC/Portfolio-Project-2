@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
-
+/* screen width min 300px*/
 * {
     margin: 0;
     padding: 0;
@@ -21,8 +21,6 @@ body {
 
 h1{
     color: #d1b2fc;
-    justify-self: center;
-    grid-area: top;
 }
 
 .controls-container {
@@ -31,27 +29,6 @@ h1{
     justify-content: space-around;
     border: 2px solid white;
     padding: 5px;
-}
-
-button {
-    justify-self: center;
-    height: 25px;
-    width: 50px;
-    background-color: #561990;
-    border-radius: 25px;
-    border: 2px solid #d1b2fc;
-    font-family: "Cinzel Decorative", serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 1em;
-    letter-spacing: 2px;
-}
-
-button:hover {
-    background-color: #d1b2fc;
-    color: #000000;
-    border: 2px solid black;
-    cursor: pointer;
 }
 
 .game-area {
@@ -109,11 +86,7 @@ button:hover {
 }
 
 .card-front {
-    background-image: url("/assets/images/default.png");
-    height: 60px;
-    width: 60px;
-    border-radius: 15px;
-    backface-visibility: hidden;   
+    background-image: url("/assets/images/default.png");   
 }
 
 .card-back {
@@ -121,15 +94,15 @@ button:hover {
 }
 
 .card-front > img {
-    height: 60px;
-    width: 60px;
+    height: 100%;
+    width: 100%;
     border-radius: 15px;
     object-fit: cover;
 }
 
 .card-back > img {
-    height: 60px;
-    width: 60px;
+    height: 100%;
+    width: 100%;
     border-radius: 15px;
     object-fit: cover;
 }
@@ -142,6 +115,136 @@ button:hover {
     transform: rotateY(0deg);
 }
 
+.overlay-text {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: #d1b2fc;
+}
+
+.overlay-text-small {
+    font-size: .3em;
+}
+.overlay-text.visible {
+    display: flex;
+    flex-direction: column;
+    animation: grow 500ms forwards;
+}
+
+@keyframes grow {
+    from {
+        background-color: rgba(86, 25, 144, 0);
+        font-size: 0;
+    }
+    to {
+        background-color: rgba(86, 25, 144, 0.8);
+        font-size: 8em;
+    }
+}
 .hide {
     display: none;
+}
+
+@media screen and (min-width:567px) {
+
+    h1{
+        font-size: 4em;
+    }
+
+    .controls-container {
+        font-size: 2.5em;
+        padding: 10px;
+    }
+
+    .game-area {
+        height: 33em;
+        width: 33em;
+        column-gap: 15px;
+        padding-top: 15px;
+    }
+
+    .card {
+        height: 100px;
+        width: 100px;
+    }
+}
+@media screen and (min-width: 768px) {
+    
+    h1 {
+        font-size: 5em;
+    }
+
+    .controls-container {
+        font-size: 3em;
+        padding: 20px;
+    }
+
+    .game-area {
+        height: 40em;
+        width: 40em;
+        row-gap: 10px;
+        column-gap: 20px;
+        padding-top: 25px;
+        padding-bottom: 10px;
+    }
+
+    .card {
+        height: 120px;
+        width: 120px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+
+    h1 {
+        font-size: 7em;
+    }
+    
+    .controls-container {
+        font-size: 5em;
+    }
+
+    .game-area {
+        height: 60em;
+        width: 60em;
+        row-gap: 10px;
+        column-gap: 20px;   
+    }
+    
+    .card {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    h1 {
+        font-size: 10.5em;
+    }
+
+    .controls-container {
+        font-size: 7em;
+    }
+
+    .game-area {
+        height: 85em;
+        width: 85em;
+        row-gap: 10px;
+        column-gap: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .card {
+        height: 290px;
+        width: 290px;
+    }
+
 }
