@@ -105,7 +105,6 @@ class MysticMatch {
     startGame() {
         this.flipCount = 0;
         this.timeRemaining = this.totalTime;
-        this.matchedCards = [];
         this.lockPlay = true;
         setTimeout(() => {
             shuffleCards();
@@ -184,8 +183,6 @@ function createDeck() {
     checkIfReady();
 };
 
-
-
 function checkIfReady() {
     if (shuffleCardsComplete === true && createDeckComplete === true) {
         ready();
@@ -255,7 +252,7 @@ function flipCardBack() {
         card2.classList.remove("flipped");
         card2.classList.remove("matched");
         resetGamePlay();
-    }, 1000);
+    }, 800);
 };
 
 function resetGamePlay() {
