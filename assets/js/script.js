@@ -1,5 +1,5 @@
 const gameArea = document.querySelector(".game-area");
-const defaultImage = ("../assets/images/default.png");
+const defaultImage = ("./assets/images/default.png");
 const controls = document.getElementById(".controls-container");
 const reset = document.getElementById(".reset");
 let matches = document.getElementById("match-count");
