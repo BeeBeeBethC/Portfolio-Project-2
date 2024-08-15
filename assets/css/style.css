@@ -79,7 +79,7 @@ h1{
 }
 
 .card-front {
-    background-image: url("/assets/images/default.png");   
+    background-image: url("../images/default.png");   
 }
 
 .card-back {

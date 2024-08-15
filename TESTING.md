@@ -49,9 +49,7 @@ Welcome to the testing README document for Mystic Match.
      When trying to debug it during finalizing, this would quite often pose an error that would prevent other things from working corectly. hense why this bug still exists but the game works as expected despite the timer not always reducing.
      
      - the winner overlay flips cards back and resets the match counter but doesn't re-shuffle the cards. whilst this is still a known bug, on web page refresh cards will re-shuffle. 
-     again and present as a fresh deck. More time would be needed to debug this fully.
-
-     - every so often, there's a 404 error that comes up on a none existing duplicate default png image. (see screenshots for full details) as it varies between an obsolete image and the first line in my styles.css code. the line of code which it refers to is the stylesheet of the google fonts used. This has been an ongoing bug in this project. I've tried rewriting the file path and checking all other existing filepaths to ensure they all return to the image source.      
+     again and present as a fresh deck. More time would be needed to debug this fully.    
     
 ### known bugs 
      - Cards would only partially flip and have a delay showing the image.
