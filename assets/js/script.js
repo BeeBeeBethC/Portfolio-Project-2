@@ -10,22 +10,22 @@ let card1, card2;
 let isBusy = false;
 
 const cards = [
-  { name: "unicorn", image: "../images/1.png" },
-  { name: "fae-folk", image: "../images/2.png" },
-  { name: "alchemist", image: "../images/3.png" },
-  { name: "wizard", image: "../images/4.png" },
-  { name: "pirate", image: "../images/5.png" },
-  { name: "elf-folk", image: "../images/6.png" },
-  { name: "witch", image: "../images/7.png" },
-  { name: "dragon", image: "../images/8.png" },
-  { name: "unicorn", image: "../images/1.png" },
-  { name: "fae-folk", image: "../images/2.png" },
-  { name: "alchemist", image: "../images/3.png" },
-  { name: "wizard", image: "../images/4.png" },
-  { name: "pirate", image: "../images/5.png" },
-  { name: "elf-folk", image: "../images/6.png" },
-  { name: "witch", image: "../images/7.png" },
-  { name: "dragon", image: "../images/8.png" }
+  { name: "unicorn", image: "assets/images/1.png" },
+  { name: "fae-folk", image: "assets/images/2.png" },
+  { name: "alchemist", image: "assets/images/3.png" },
+  { name: "wizard", image: "assets/images/4.png" },
+  { name: "pirate", image: "assets/images/5.png" },
+  { name: "elf-folk", image: "assets/images/6.png" },
+  { name: "witch", image: "assets/images/7.png" },
+  { name: "dragon", image: "assets/images/8.png" },
+  { name: "unicorn", image: "assets/images/1.png" },
+  { name: "fae-folk", image: "assets/images/2.png" },
+  { name: "alchemist", image: "assets/images/3.png" },
+  { name: "wizard", image: "assets/images/4.png" },
+  { name: "pirate", image: "assets/images/5.png" },
+  { name: "elf-folk", image: "assets/images/6.png" },
+  { name: "witch", image: "assets/images/7.png" },
+  { name: "dragon", image: "assets/images/8.png" }
 ];
 
 const overlays = [
