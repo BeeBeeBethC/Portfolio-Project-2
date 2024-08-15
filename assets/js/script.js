@@ -1,5 +1,5 @@
 const gameArea = document.querySelector(".game-area");
-const defaultImage = "./assets/images/default.png";
+const defaultImage = "/assets/images/default.png";
 const matchCountDisplay = document.querySelector("#match-count");
 let matchCount = 0;
 let timeValue = document.querySelector("#time-remaining");

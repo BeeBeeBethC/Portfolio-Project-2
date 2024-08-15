@@ -44,9 +44,21 @@ Welcome to the testing README document for Mystic Match.
 
  good code practices have been followed where possible in creating this project.  
 ## Debugging
+### existing bugs 
+     - the timer doesn't reset following 'game over' overlay. More time would be needed too debug and iron out this particular bug fully. 
+     When trying to debug it during finalizing, this would quite often pose an error that would prevent other things from working corectly. hense why this bug still exists but the game works as expected despite the timer not always reducing.
+     
+     - the winner overlay flips cards back and resets the match counter but doesn't re-shuffle the cards. whilst this is still a known bug, on web page refresh cards will re-shuffle. 
+     again and present as a fresh deck. More time would be needed to debug this fully.
 
+     - every so often, there's a 404 error that comes up on a none existing duplicate default png image. (see screenshots for full details) as it varies between an obsolete image and the first line in my styles.css code. the line of code which it refers to is the stylesheet of the google fonts used. This has been an ongoing bug in this project. I've tried rewriting the file path and checking all other existing filepaths to ensure they all return to the image source.      
+    
 ### known bugs 
      - Cards would only partially flip and have a delay showing the image.
 
 ### resolved bugs
      - Cards now flip as expected, this bug was due to a couple of lines of code that was in my css styles document. one had a transform animation of 1 second ease. the other conflicting animation was a hover animation. By removing the transform and the hover animation it is flipping cards immediately. 
+
+## further testing
+
+further testing was completed across multiple devices on multiple browsers and no further issues where found. 
