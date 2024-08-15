@@ -1,12 +1,10 @@
 const gameArea = document.querySelector(".game-area");
 const defaultImage = "./assets/images/default.png";
-const controls = document.querySelector(".controls-container");
 const matchCountDisplay = document.querySelector("#match-count");
 let matchCount = 0;
 let timeValue = document.querySelector("#time-remaining");
 let shuffleCardsComplete = false;
 let createDeckComplete = false;
-let loadOverlaysComplete = false;
 let countdownInterval;
 let card1, card2;
 let isBusy = false;
@@ -118,7 +116,6 @@ function shuffleCards() {
     cards[i] = cards[j];
     cards[j] = k;
   }
-  console.log('SHUFFLE CARDS FUNCTION COMPLETE', cards);
   shuffleCardsComplete = true;
   checkIfReady();
 }
@@ -142,7 +139,6 @@ function createDeck() {
     `;
     gameArea.appendChild(cardElement);
   });
-  console.log('CREATE DECK FUNCTION COMPLETE', cards);
   createDeckComplete = true;
   checkIfReady();
 }
@@ -160,15 +156,11 @@ function loadOverlays() {
       });
     }
   });
-  console.log("OVERLAYS LOADED PASSING TO CHECK");
 }
 
 function checkIfReady() {
   if (shuffleCardsComplete && createDeckComplete && overlays.every(o => o.loaded)) {
     ready();
-    console.log("ALL FUNCTIONS ARE COMPLETE. READY FUNCTION CALLED");
-  } else {
-    console.log("WAITING FOR FUNCTIONS TO COMPLETE");
   }
 }
 
@@ -181,22 +173,18 @@ function ready() {
       startGame();
     });
   });
-  console.log("OVERLAYS CLICK EVENTS SET, READY FUNCTION COMPLETE");
 }
 
 function canFlipCard() {
   if (isBusy || this === card1 || this.classList.contains("matched")) return;
 
   this.classList.add("flipped");
-  console.log('CARD FLIPPED:', this);
 
   if (!card1) {
     card1 = this;
-    console.log("FIRST CARD VALUES", card1);
     isBusy = false;
   } else {
     card2 = this;
-    console.log('SECOND CARD VALUES', card2);
     isBusy = true;
     checkForMatch();
   }
@@ -205,12 +193,10 @@ function canFlipCard() {
 function checkForMatch() {
   if (card1 && card2) {
     if (card1.dataset.name === card2.dataset.name && card1.dataset.order === card2.dataset.order) {
-      console.log('BOTH ELEMENTS HAVE THE SAME DATA-NAME AND DATA-ORDER');
       matchCount++;
       matchCountDisplay.innerText = matchCount;
       cardFreeze();
     } else {
-      console.log('DATA ELEMENTS DO NOT MATCH');
       flipCardBack();
     }
   }
