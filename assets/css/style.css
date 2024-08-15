@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+/* Body Styles */
 body {
     display: flex;
     background: #561990;
@@ -22,15 +22,20 @@ body {
 h1{
     color: #d1b2fc;
 }
-
+/* Controls Container Styles */
 .controls-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     border: 2px solid white;
     padding: 5px;
+    color: #d1b2fc;
+    font-size: 1em;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
 }
-
+ /* Game Area Styles */
 .game-area {
     display: flex;
     flex-wrap: wrap;
@@ -45,22 +50,9 @@ h1{
     border: 8px solid black;
     border-radius: 15px;
 }
-
-.main {
-    display: flex;
-}
-
-.flip-count {
-    color: #d1b2fc;
-    font-size: 1em;
-    font-family: "Cinzel Decorative", serif;
-    font-weight: 700;
-    font-style: normal;
-    justify-self: space-around;
-}
-
 /* The following elements are in the JS document styled when they appear in HTML*/
 
+/* Card Styles */
 .card {
     height: 60px;
     width: 60px;
@@ -84,7 +76,6 @@ h1{
     backface-visibility: hidden;
     transition: ease;
 }
-
 
 .card-front {
     background-image: url("/assets/images/default.png");   
@@ -116,6 +107,7 @@ h1{
     transform: rotateY(0deg);
 }
 
+/* Overlay Styles */
 .overlay-text {
     position: fixed;
     top: 0;
@@ -151,6 +143,8 @@ h1{
 .hide {
     display: none;
 }
+
+/* Styles for Responsive Design */
 
 @media screen and (min-width:567px) {
 
