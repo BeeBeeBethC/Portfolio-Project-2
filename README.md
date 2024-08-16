@@ -26,23 +26,29 @@ Mystic Match was inspired by all things 'cottage-core'. This then evolved into f
     * [Media](#credits)
 
 ## Target Audience
-     the target audience for this project was mainly for anyone and everyone whether users like the idea of mythical creatures or just want a memory game to play, I'd hope that this is what they would be looking for.
+the target audience for this project was mainly for anyone and everyone whether users like the idea of mythical creatures or just want a memory game to play, I'd hope that this is what they would be looking for.
 
 ## User Experience
-     as a user, I would like to play a memory game which purely tests your memory based on where images are located in a grid on the page. 
+as a user, I would like to play a memory game which purely tests your memory based on where images are located in a grid on the page. 
 
-     as a user who enjoys fantasy and mythical creatures, I wanted a game that would match that aesthetic. 
+as a user who enjoys fantasy and mythical creatures, I wanted a game that would match that aesthetic. 
 
-     as a user, I would like the game to be intuitive and straight forward to learn.
+as a user, I would like the game to be intuitive and straight forward to learn.
 
-     as a user, I want immediate feedback from matched cards such as those that are matched not flipping back.
+as a user, I want immediate feedback from matched cards such as those that are matched not flipping back.
 
 ## Design Choices, Features, Typography and WireFrames
 
-     For this project, the design process was fairly straightforward to me, I wanted to show my passion for all things fantasy. Overall the design of this project remains the same across all screen sizes and is fully responsive.
+For this project, the design process was fairly straightforward to me, I wanted to show my passion for all things fantasy. Overall the design of this project remains the same across all screen sizes and is fully responsive.
+
+colours for this project are as follows: 
+
+![colour-palette](assets/documentation-screenshots/colour-palette.png)
+
+I chose these colours because when I think Fantasy, I think Purples, Mauves, Violets and felt these colours all complemented one another without causing contrast issues. The darkest colour I used for the main background colour, the other three colours mentioned I used as a gradient background for the game area.
 
 ### Typography
-     For this project, the typography used for Mystic Match is Cinzel Decorative, serif font. I wanted something with a little extra flare yet still be readable. 
+For this project, the typography used for Mystic Match is Cinzel Decorative, serif font. I wanted something with a little extra flare yet still be readable. 
 
 ![font-family](assets/documentation-screenshots/Font-Family-Cinzel-Decorative.png)
 ![font-family](assets/documentation-screenshots/titlefont.png)
