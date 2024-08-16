@@ -165,8 +165,8 @@ How to create a fork of Portfolio-Project-2 Repository
    - The idea for overlays was adapted to the project from Youtubers Web Dev Simplified and PortEXE as well as guidance from their project for a match card game to see how everything comes together. 
    - Web Dev Simplified: Youtube Channel - https://www.youtube.com/watch?v=28VfzEiJgy4&t=19s 
    - PortEXE: Youtube Channel -  https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=0s
-   - W3Schools information on html, css and javascript content to get a better understanding mainly of how javascript works. 
-
+   - W3Schools information on HTML, CSS and JavaScript content to get a better understanding mainly of how JavaScript works.
+   - W3Schools Fisher-Yates shuffle algorithm was used for the Shuffle Function. 
    - Kera Cudmore's Webinar was used as a guide to set up my own README and TESTING README documentation.
    
   ### Media 
