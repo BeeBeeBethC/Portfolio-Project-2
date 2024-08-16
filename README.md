@@ -6,24 +6,24 @@ Mystic Match was inspired by all things 'cottage-core'. This then evolved into f
 TODO add in amiresponsive screenshot of finished webpage.
 
 ## Contents
-* [Target Audience](#)
-* [User Experience](#)
-* [Design choices](#)
-    * [Typography](#)
-    * [Future Implementations](#)
-* [Features](#)
-    * [Desktop Wire-frames](#)
-    * [Tablet Wire-frames](#)
-    * [Mobile Wire-frames](#)   
-* [Languages, Technologies, Frameworks and Libraries](#)
-    * [Languages](#)
-* [Testing](#)
-    * [Deployment](#)
-    * [Clone The Repository](#)
-    * [How To Create A Fork](#)
-* [Credits](#)
-    * [Content](#)
-    * [Media](#)
+* [Target Audience](#target-audience)
+* [User Experience](#user-experience)
+* [Design choices](#design-choices-features-typography-and-wireframes)
+    * [Typography](#typography)
+    * [Future Implementations](#future-implementations)
+* [Features](#features)
+    * [Desktop Wire-frames](#wireframes)
+    * [Tablet Wire-frames](#wireframes)
+    * [Mobile Wire-frames](#wireframes)   
+* [Languages, Technologies, Frameworks and Libraries](#languages-used-for-this-project)
+    * [Other Technologies Used](#other-technologies-used)
+* [Testing](#testing)
+    * [Deployment](#deployment)
+    * [Clone The Repository](#how-to-clone-the-repository)
+    * [How To Create A Fork](#how-to-fork-the-repository)
+* [Credits](#credits)
+    * [Content](#credits)
+    * [Media](#credits)
 
 ## Target Audience
      the target audience for this project was mainly for anyone and everyone whether users like the idea of mythical creatures or just want a memory game to play, I'd hope that this is what they would be looking for.
@@ -47,6 +47,10 @@ TODO add in amiresponsive screenshot of finished webpage.
 ![font-family](assets/documentation-screenshots/Font-Family-Cinzel-Decorative.png)
 ![font-family](assets/documentation-screenshots/titlefont.png)
 
+### Favicon image
+
+![Favicon-tab-image](assets/documentation-screenshots/favicon-image.png)
+
 ### Features
      Cards randomize every time the player refreshes the page.
      Layout remains fairly similar across all devices due to responsivity.
@@ -59,34 +63,62 @@ TODO add in amiresponsive screenshot of finished webpage.
 ![tablet-wireframe](assets/documentation-screenshots/tablet-game-wireframe.png)
 ![mobile-wireframe](assets/documentation-screenshots/mobile-game-wireframe.png)
 
+### future implementations
+
+- levelling system i.e various levels easy / medium / hard incrementing from a 4 by 4 grid to a 6 by 6 grid for example
+- Background Audio and sound effects for example a backing track with user controls and sound effects on card flips and overlays. 
+- having images stored in a json document and getting them from that document into the game.
+
 ## Testing
 
-     Testing for Mystic Match can be found in the adjacent TESTING.md document.
+Testing for Mystic Match can be found in the adjacent TESTING.md document.
 
 ## Languages used for this project
 
-     languages used to create Mystic Match are HTML, CSS and JavaScript.
+languages used to create Mystic Match are HTML, CSS and vanilla JavaScript.
 
-     no frameworks or libraries where used during the making of this project.
+no other frameworks or libraries where used during the making of this project.
 
+  ### other technologies used 
+
+Gitpod - The IDE used for editing my website code.
+
+Github - Github is used for storage of my website.
+
+gitPages - used to publish my website online.
+
+Favicon generator - used to generate the small logo situated in the tabs bar. 
+
+Balsamiq wireframes - used to draw out the initial skeleton for the game. 
+
+Google Fonts - used to generate a font for typography. 
+
+Google Chrome - for testing and for the use of Devtools to help identify visual bugs on a live preview.
+
+Am I responsive? - used to generate the image at the top of the document showing four different devices all at once. 
+
+Cloudconvert website - used to convert images to PNG instead of JPG images.
+
+     
 ## Deployment
 
-     Project-Portfolio-2 was deployed to Github pages. 
+Project-Portfolio-2 was deployed to Github pages. 
 
-     The steps I took to do this are as follows below: 
+The steps I took to do this are as follows below: 
      
-     In the GitHub repository, I clicked on the "Settings" tab.
+In the GitHub repository, I clicked on the "Settings" tab.
      
-     I then navigated to the "Pages" tab on the left-hand sidebar.
+I then navigated to the "Pages" tab on the left-hand sidebar.
      
-     Under "Source" click the "None" dropdown and selected the "main" or "master" branch.
-     Clicked "Save".
+Under "Source" click the "None" dropdown and selected the "main" or "master" branch.
+
+Clicked "Save".
 
 Once the master branch had been selected and the browser has reloaded itself, the page then provided the link to the live deployed version of the website.
 
      The live link can be found here - Portfolio-Project-2 (https://beebeebethc.github.io/Portfolio-Project-2/).
 
-### How to clone a repository
+  ### How to clone the repository
 
 For local development, If you wish to explore the making of Portfolio-Project-2, "Mystic Match", follow these steps below to create a clone:
     
@@ -107,7 +139,7 @@ For local development, If you wish to explore the making of Portfolio-Project-2,
     
      8. Let the Repository download and click 'open' when the onscreen prompt appears in the bottom right hand corner of the screen.
 
-### How to create a fork of the repository:
+  ### How to fork the repository:
 
 How to create a fork of Portfolio-Project-2 Repository
 
@@ -121,11 +153,14 @@ How to create a fork of Portfolio-Project-2 Repository
 
   ### Content
 
-     Cloudconvert to convert images to PNG instead of JPG images.
+     - Youtuber, BroCode's JavaScript playlist helped me to gain a better understanding of JavaScript https://www.youtube.com/watch?v=Ihy0QziLDf0&
+     
+     - The idea for overlays was adapted to the project from Youtubers Web Dev Simplified and PortEXE as well as guidance from their project for a match card game to see how everything comes together. 
+     - Web Dev Simplified: Youtube Channel - https://www.youtube.com/watch?v=28VfzEiJgy4&t=19s 
+     - PortEXE: Youtube Channel -  https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=0s
+     W3Schools information on html, css and javascript content to get a better understanding mainly of how javascript works. 
 
-     Chrome Devtools used to help identify visual bugs on a live preview.
-
-     Kera Cudmore's Webinar and supporting content of 'Creating your first README' was used as a guide to gain a better understanding of how to set up my own README documentation.
+     Kera Cudmore's Webinar was used as a guide to set up my own README and TESTING README documentation.
    
   ### Media 
 
