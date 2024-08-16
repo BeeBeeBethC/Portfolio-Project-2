@@ -3,7 +3,7 @@
 Mystic Match is a fantasy inspired card matching game. The purpose of Mystic Match is to match all the pairs of cards as quickly as possible and in as few moves as possible.
 Mystic Match was inspired by all things 'cottage-core'. This then evolved into fantasy cottage-core vibes primarily targeted at players who want a 'cosy' matching game, with a love for all things fantasy or folk you would meet during a Live-Action Role-Playing Game. 
 
-TODO add in amiresponsive screenshot of finished webpage.
+![responsivity](assets/documentation-screenshots/responsivity.png)
 
 ## Contents
 * [Target Audience](#target-audience)
