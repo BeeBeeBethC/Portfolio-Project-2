@@ -58,18 +58,18 @@ For this project, the typography used for Mystic Match is Cinzel Decorative, ser
 ![Favicon-tab-image](assets/documentation-screenshots/favicon-image.png)
 
 ### Features
-     Cards randomize every time the player refreshes the page.
-     Layout remains fairly similar across all devices due to responsivity.
-     Mystic Match has overlays which control the 'play-game' functions, 'winner' functions and 'game-over' functions.
-     this game has a countdown timer and has a matches tracker. 
-     once the player has matched all cards on the board, they get an automatic winner overlay appear.
+Cards randomize every time the player refreshes the page.
+Layout remains fairly similar across all devices due to responsivity.
+Mystic Match has overlays which control the 'play-game' functions, 'winner' functions and 'game-over' functions.
+this game has a countdown timer and has a matches tracker. 
+once the player has matched all cards on the board, they get an automatic winner overlay appear.
 
 ### Wireframes
 ![Desktop-wireframe](assets/documentation-screenshots/Desktop-Game-Wireframe.png)
 ![tablet-wireframe](assets/documentation-screenshots/tablet-game-wireframe.png)
 ![mobile-wireframe](assets/documentation-screenshots/mobile-game-wireframe.png)
 
-### future implementations
+### Future Implementations
 
 - levelling system i.e various levels easy / medium / hard incrementing from a 4 by 4 grid to a 6 by 6 grid for example
 - Background Audio and sound effects for example a backing track with user controls and sound effects on card flips and overlays. 
@@ -105,6 +105,7 @@ Am I responsive? - used to generate the image at the top of the document showing
 
 Cloudconvert website - used to convert images to PNG instead of JPG images.
 
+Replit AI to help better understand errors and metrics. 
      
 ## Deployment
 
@@ -122,7 +123,7 @@ Clicked "Save".
 
 Once the master branch had been selected and the browser has reloaded itself, the page then provided the link to the live deployed version of the website.
 
-     The live link can be found here - Portfolio-Project-2 (https://beebeebethc.github.io/Portfolio-Project-2/).
+The live link can be found here - Portfolio-Project-2 (https://beebeebethc.github.io/Portfolio-Project-2/).
 
   ### How to clone the repository
 
@@ -149,37 +150,41 @@ For local development, If you wish to explore the making of Portfolio-Project-2,
 
 How to create a fork of Portfolio-Project-2 Repository
 
-     1. Sign up or login to Github.
+  1. Sign up or login to Github.
     
-     2. Go to the repository for Portfolio-Project-2 (https://github.com/BeeBeeBethC/Portfolio-Project-2)
+  2. Go to the repository for Portfolio-Project-2 (https://github.com/BeeBeeBethC/Portfolio-Project-2)
     
-     3. Click the fork button on the top right hand side of the screen.
+  3. Click the fork button on the top right hand side of the screen.
 
 ## Credits
 
   ### Content
 
-     - Youtuber, BroCode's JavaScript playlist helped me to gain a better understanding of JavaScript https://www.youtube.com/watch?v=Ihy0QziLDf0&
+   - Youtuber, BroCode's JavaScript playlist helped me to gain a better understanding of JavaScript https://www.youtube.com/watch?v=Ihy0QziLDf0&
      
-     - The idea for overlays was adapted to the project from Youtubers Web Dev Simplified and PortEXE as well as guidance from their project for a match card game to see how everything comes together. 
-     - Web Dev Simplified: Youtube Channel - https://www.youtube.com/watch?v=28VfzEiJgy4&t=19s 
-     - PortEXE: Youtube Channel -  https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=0s
-     W3Schools information on html, css and javascript content to get a better understanding mainly of how javascript works. 
+   - The idea for overlays was adapted to the project from Youtubers Web Dev Simplified and PortEXE as well as guidance from their project for a match card game to see how everything comes together. 
+   - Web Dev Simplified: Youtube Channel - https://www.youtube.com/watch?v=28VfzEiJgy4&t=19s 
+   - PortEXE: Youtube Channel -  https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=0s
+   - W3Schools information on html, css and javascript content to get a better understanding mainly of how javascript works. 
 
-     Kera Cudmore's Webinar was used as a guide to set up my own README and TESTING README documentation.
+   - Kera Cudmore's Webinar was used as a guide to set up my own README and TESTING README documentation.
    
   ### Media 
 
-     The default image and character images where all generated using AI technology through the use of Canva Magic Media. 
+   - The default image and character images where all generated using AI technology through the use of Canva Magic Media. 
 
   ### Acknowledgements
 
-     Firstly, a shoutout personally to a fellow student of mine, George Small for being an awesome friend and cheerleader when times during this project were tough!
+   Firstly, a shoutout personally to a fellow student of mine, George Small for being an awesome friend and cheerleader when times during this project were tough!
    
-     My family and friends who continually offer their support. 
+   My family and friends who continually offer their support. 
 
-     Luke Buchanan, my mentor for his continued support.
+   Luke Buchanan, my mentor for his continued support.
 
-     Sherry_5P_Lead for your advice on where to go for last minute debugging assistance and being there during stages of overwhelm and imposter syndrome!
+   Sherry_5P_Lead for your advice on where to go for last minute debugging assistance and being there during stages of overwhelm and imposter syndrome!
+
+   ### Authors Final Word
+
+   On reflection of the project, This project has been a steep learning curve into the world of JavaScript and honestly, I've really enjoyed it. Despite the frustrations and despite errors occuring and re-occuring (default image I'm looking at you!) I'm happy where this project is at point of submission. I hope you also enjoy it as much as I have enjoyed creating it.
 
    

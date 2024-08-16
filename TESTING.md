@@ -30,7 +30,6 @@ Welcome to the testing document for Mystic Match.
 | game over overlay | when clicked should reset the entire game | clicked the overlay | the timer and match count reset but the overlay did not refresh card deck | see bug section |
 | winner overlay | when clicked should reset the entire game | clicked the overlay | the timer and match count reset but the overlay did not refresh card deck | see bug section |
 |   |   |   |   |   |
-|  |  |  |  |  |
 
 ## Validator Testing
 validator testing is as follows: 
@@ -52,7 +51,7 @@ my JavaScript file returned these metrics:
 
 ![jslint-metrics](assets/documentation-screenshots/metrics-jslint.png)
 
-on looking at them, I wondered what all of them meant, I opened Replit and used Replit AI to help better understand the metrics from JSLint.
+at first glance, I wondered what all of them meant, I opened Replit and used Replit AI to help better understand the metrics from JSLint.
 
 on reflection, these are my interpretations from the metrics. 
 
@@ -83,7 +82,7 @@ Lighthouse scores for this project where all as expected as I tried to make the 
 
 ## Wave Testing 
 
-I wanted to check that the project was still as accessible as possible, the alerts link back to the fact that theres lots of aria labels close to one another which it marks as suspicious. apart from that there are no other issues.
+I wanted to check that the project was still as accessible as possible, the alerts link back to the fact that theres lots of aria labels close to one another which it marks as suspicious. Apart from that there are no other issues.
 
 ![wave-testing](assets/documentation-screenshots/wave.png)
 
@@ -91,14 +90,16 @@ I wanted to check that the project was still as accessible as possible, the aler
     
 ### Known Bugs 
    - Cards would only partially flip and have a delay showing the image.
+   - default image would throw a 404 error.
 
 ### Resolved Bugs
-   - Cards now flip as expected, this bug was due to a couple of lines of code that was in my css styles document. one had a transform animation of 1 second ease. the other conflicting animation was a hover animation. By removing the transform and the hover animation it is flipping cards immediately. 
+   - Cards now flip as expected, this bug was due to a couple of lines of code that was in my css styles document. One had a transform animation of 1 second ease. The other conflicting animation was a hover animation. By removing the transform and the hover animation it is flipping cards immediately. 
+   - On reviewing filepaths and adjusting accordingly the default image file path no longer throws errors. 
 
 ### Existing Bugs 
-   - The timer doesn't reset following 'game over' overlay. More time would be needed too debug and this particular bug fully. Despite this being an existing bug, it's actually quite a useful bug as it allows users to try to complete all the matches without the time constraint. This wasn't intended hence why I've left it in existing bugs and would need more time to either incorporate this as an extra feature or to fix it completely.
+   - The timer doesn't reset following 'game over' overlay. More time would be needed too debug this particular bug fully. Despite this being an existing bug, it's actually quite a useful bug as it allows users to try to complete all the matches without the time constraint. This wasn't intended hence why I've left it in existing bugs and would need more time to either incorporate this as an extra feature or to fix it completely.
      
-   - The winner overlay flips cards back and resets the match counter but doesn't re-shuffle the cards. whilst this is still an existing bug, on web page refresh cards will re-shuffle again and present users with a fresh deck. More time would be needed to debug this completely but if I had more time I would re-route this back to the 'play game' overlay which in turn would refresh the game board.
+   - The winner overlay flips cards back and resets the match counter but doesn't re-shuffle the cards. Whilst this is still an existing bug, On web page refresh cards will re-shuffle again and present users with a fresh deck. More time would be needed to debug this completely.
 
 ## Further Testing
 
